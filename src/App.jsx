@@ -8,7 +8,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 const CONFIG = {
   // ---- YOUR BRAND ----
   appName: "$PFMUSIC",
-  logoUrl: "", // Put your logo URL here, e.g. "https://cloudinary.com"
+  logoUrl: "", // Put your logo URL here, e.g. "https://cloudinry.com"
   logoText: "$PFMUSIC", // Shown if no logo image
 
   // ---- THEME COLORS (change these to restyle the entire app) ----
