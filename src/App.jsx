@@ -21,7 +21,7 @@ const CONFIG = {
     bgHighlight: "#2a2a2a",   // Hover highlight
     textPrimary: "#FFFFFF",   // Main text
     textSecondary: "#dfdfdf", // Secondary text
-    textSubdued: "#e5e5e5",   // Muted text
+    textSubdued: "#e7e7e7",   // Muted text
     bgSidebar: "#000000",     // Sidebar background
     bgPlayer: "#181818",      // Bottom player bar
     divider: "#333333",        // Border/divider color
