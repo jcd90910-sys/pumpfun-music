@@ -706,7 +706,7 @@ export default function SpotifyClone() {
     const recentMix = CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "ass morning" : new Date().getHours() < 18 ? "ahh afternoon" : "evening trencher"}</h2>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => {
             const [h, setH] = useState(false);
