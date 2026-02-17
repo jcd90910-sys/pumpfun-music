@@ -124,7 +124,7 @@ Pull up, black masked up, get strapped.`,
       album: "Single",
       duration: 67,
       audioUrl: "/songs/homeless.mp3",
-      coverUrl: "https://picsum.photos/seed/album2/300/300",
+      coverUrl: "/covers/get rugged.png",
       lyrics: `[Verse 1]
 You just got scammed by a bunch of homeless niggas
 Suck some dick til your lips are puffed up like you got fillers
@@ -528,10 +528,6 @@ const getArtists = () => {
   return Object.values(artistMap);
 };
 
-// ============================================================
-// MOBILE DETECTION HOOK
-// ============================================================
-
 const useIsMobile = () => {
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -552,22 +548,22 @@ const Icons = {
   HomeFilled: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z"/></svg>),
   Search: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.279c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"/></svg>),
   Library: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zM15.5 2.134A1 1 0 0014 3v18a1 1 0 001.5.866l10-5.77a1 1 0 000-1.732l-10-5.77zM16 4.732L23.5 9.5 16 14.268V4.732zM9 2a1 1 0 00-1 1v18a1 1 0 102 0V3a1 1 0 00-1-1z"/></svg>),
-  Play: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>),
-  Pause: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"/></svg>),
-  SkipNext: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M17.7 3a.7.7 0 00-.7.7v6.805L5.05 3.606A.7.7 0 004 4.212v15.576a.7.7 0 001.05.606L17 13.495V20.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-1.6z"/></svg>),
-  SkipPrev: ({ size = 24 }) => (<svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d="M6.3 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7v-6.805l11.95 6.899A.7.7 0 0021.6 19.788V4.212a.7.7 0 00-1.05-.606L8.6 10.505V3.7a.7.7 0 00-.7-.7H6.3z"/></svg>),
-  Shuffle: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M13.151 6.252c-.063.037-.112.09-.173.126L8.891 8.85l1.009 1.735 2.972-1.8 4.26 7.205-1.563.898 3.168 3.048 1.103-4.292-1.535.882-4.727-7.998c-.063-.112-.153-.196-.24-.28l-.002-.001a1.237 1.237 0 00-.185-.151zM5.636 8.85L4 9.792l4.974 8.423 1.636-.942L5.636 8.85zm10.893.124l-1.563.898 2.112 3.572 1.535-.882-2.084-3.588zm-6.01 4.692L9.51 15.4l1.803 3.051 1.009-1.735-1.803-3.05z"/></svg>),
-  Repeat: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M5.5 5h13a4.5 4.5 0 010 9H8.207l2.147-2.146a.5.5 0 00-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708-.708L8.207 15H18.5a3.5 3.5 0 100-7h-13a.5.5 0 010-1H18.5a4.5 4.5 0 010 9H5.5a.5.5 0 010-1z"/></svg>),
-  Volume: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.36 19.36a1 1 0 01-.7-1.71 7.33 7.33 0 000-10.36 1 1 0 011.41-1.41 9.33 9.33 0 010 13.18 1 1 0 01-.71.3zM15.54 16.54a1 1 0 01-.71-.3 1 1 0 010-1.41 3.93 3.93 0 000-5.54 1 1 0 011.42-1.42 5.93 5.93 0 010 8.37 1 1 0 01-.71.3zM12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4z"/></svg>),
-  VolumeMute: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4zM22.71 12l2.15-2.15a1 1 0 00-1.42-1.42L21.29 10.58l-2.15-2.15a1 1 0 00-1.42 1.42l2.15 2.15-2.15 2.15a1 1 0 001.42 1.42l2.15-2.15 2.15 2.15a1 1 0 001.42-1.42z"/></svg>),
-  Heart: ({ filled }) => filled ? (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>) : (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>),
-  Lyrics: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/></svg>),
-  Queue: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/></svg>),
-  Close: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M18.3 5.71a1 1 0 00-1.42 0L12 10.59 7.12 5.71A1 1 0 005.7 7.12L10.59 12l-4.88 4.88a1 1 0 101.42 1.42L12 13.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88a1 1 0 000-1.41z"/></svg>),
-  ChevronLeft: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>),
-  ChevronRight: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>),
-  ChevronDown: () => (<svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>),
-  Clock: () => (<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>),
+  Play: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>),
+  Pause: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"/></svg>),
+  SkipNext: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M17.7 3a.7.7 0 00-.7.7v6.805L5.05 3.606A.7.7 0 004 4.212v15.576a.7.7 0 001.05.606L17 13.495V20.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-1.6z"/></svg>),
+  SkipPrev: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M6.3 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7v-6.805l11.95 6.899A.7.7 0 0021.6 19.788V4.212a.7.7 0 00-1.05-.606L8.6 10.505V3.7a.7.7 0 00-.7-.7H6.3z"/></svg>),
+  Shuffle: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M13.151 6.252c-.063.037-.112.09-.173.126L8.891 8.85l1.009 1.735 2.972-1.8 4.26 7.205-1.563.898 3.168 3.048 1.103-4.292-1.535.882-4.727-7.998c-.063-.112-.153-.196-.24-.28l-.002-.001a1.237 1.237 0 00-.185-.151zM5.636 8.85L4 9.792l4.974 8.423 1.636-.942L5.636 8.85zm10.893.124l-1.563.898 2.112 3.572 1.535-.882-2.084-3.588zm-6.01 4.692L9.51 15.4l1.803 3.051 1.009-1.735-1.803-3.05z"/></svg>),
+  Repeat: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M5.5 5h13a4.5 4.5 0 010 9H8.207l2.147-2.146a.5.5 0 00-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708-.708L8.207 15H18.5a3.5 3.5 0 100-7h-13a.5.5 0 010-1H18.5a4.5 4.5 0 010 9H5.5a.5.5 0 010-1z"/></svg>),
+  Volume: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M18.36 19.36a1 1 0 01-.7-1.71 7.33 7.33 0 000-10.36 1 1 0 011.41-1.41 9.33 9.33 0 010 13.18 1 1 0 01-.71.3zM15.54 16.54a1 1 0 01-.71-.3 1 1 0 010-1.41 3.93 3.93 0 000-5.54 1 1 0 011.42-1.42 5.93 5.93 0 010 8.37 1 1 0 01-.71.3zM12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4z"/></svg>),
+  VolumeMute: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4zM22.71 12l2.15-2.15a1 1 0 00-1.42-1.42L21.29 10.58l-2.15-2.15a1 1 0 00-1.42 1.42l2.15 2.15-2.15 2.15a1 1 0 001.42 1.42l2.15-2.15 2.15 2.15a1 1 0 001.42-1.42z"/></svg>),
+  Heart: ({ filled, size = 24 }) => filled ? (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>) : (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z"/></svg>),
+  Lyrics: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/></svg>),
+  Queue: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/></svg>),
+  Close: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M18.3 5.71a1 1 0 00-1.42 0L12 10.59 7.12 5.71A1 1 0 005.7 7.12L10.59 12l-4.88 4.88a1 1 0 101.42 1.42L12 13.41l4.88 4.88a1 1 0 001.42-1.42L13.41 12l4.88-4.88a1 1 0 000-1.41z"/></svg>),
+  ChevronLeft: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>),
+  ChevronRight: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>),
+  ChevronDown: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>),
+  Clock: () => (<svg viewBox="0 0 24 24" style={{width:16,height:16}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>),
 };
 
 // ============================================================
@@ -578,6 +574,7 @@ export default function SpotifyClone() {
   const theme = CONFIG.theme;
   const isMobile = useIsMobile();
 
+  // --- State (things that need re-renders) ---
   const [currentView, setCurrentView] = useState("home");
   const [viewData, setViewData] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -589,31 +586,52 @@ export default function SpotifyClone() {
   const [repeatMode, setRepeatMode] = useState(0);
   const [volume, setVolume] = useState(80);
   const [isMuted, setIsMuted] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [duration, setDuration] = useState(0);
   const [liked, setLiked] = useState({});
   const [showLyrics, setShowLyrics] = useState(false);
   const [showQueue, setShowQueue] = useState(false);
   const [showNowPlaying, setShowNowPlaying] = useState(false);
   const [mobileLyrics, setMobileLyrics] = useState(false);
-  const [sidebarCollapsed] = useState(false);
   const [navHistory, setNavHistory] = useState([]);
   const [navFuture, setNavFuture] = useState([]);
+  const [, forceUpdate] = useState(0); // only used for song change
 
+  // --- Refs (progress updates bypass React entirely) ---
   const audioRef = useRef(null);
-  const progressBarRef = useRef(null);
   const searchInputRef = useRef(null);
+  const progressRef = useRef(0);
+  const durationRef = useRef(0);
+  // DOM refs for direct progress bar manipulation
+  const dpFill = useRef(null);  // desktop progress fill
+  const dpTime = useRef(null);  // desktop current time text
+  const dpEnd = useRef(null);   // desktop end time text
+  const mpFill = useRef(null);  // mini player fill
+  const npFill = useRef(null);  // now playing fill
+  const npTime = useRef(null);  // now playing current time text
+
   const albums = useMemo(() => getAlbums(), []);
   const artists = useMemo(() => getArtists(), []);
+
+  // --- Direct DOM update for all progress bars (NO re-renders) ---
+  const tick = useCallback((t, d) => {
+    const pct = d > 0 ? ((t / d) * 100).toFixed(2) + "%" : "0%";
+    const ts = formatTime(t);
+    if (dpFill.current) dpFill.current.style.width = pct;
+    if (dpTime.current) dpTime.current.textContent = ts;
+    if (mpFill.current) mpFill.current.style.width = pct;
+    if (npFill.current) npFill.current.style.width = pct;
+    if (npTime.current) npTime.current.textContent = ts;
+  }, []);
 
   // --- Audio Engine ---
   useEffect(() => {
     const audio = new Audio();
     audio.volume = volume / 100;
     audioRef.current = audio;
-    audio.addEventListener("timeupdate", () => { setProgress(audio.currentTime); setDuration(audio.duration || 0); });
-    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
-    return () => { audio.pause(); };
+    const onTime = () => { progressRef.current = audio.currentTime; durationRef.current = audio.duration || 0; tick(audio.currentTime, audio.duration || 0); };
+    const onMeta = () => { durationRef.current = audio.duration; };
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("loadedmetadata", onMeta);
+    return () => { audio.removeEventListener("timeupdate", onTime); audio.removeEventListener("loadedmetadata", onMeta); audio.pause(); };
   }, []);
 
   useEffect(() => { if (audioRef.current) audioRef.current.volume = isMuted ? 0 : volume / 100; }, [volume, isMuted]);
@@ -626,46 +644,75 @@ export default function SpotifyClone() {
     return () => audio.removeEventListener("ended", handler);
   }, [repeatMode, queueIndex, queue]);
 
+  // --- Simulated playback for songs without audioUrl ---
+  useEffect(() => {
+    let raf;
+    let lastTime = performance.now();
+    const step = (now) => {
+      if (!isPlaying || !currentSong || currentSong.audioUrl) return;
+      const delta = (now - lastTime) / 1000;
+      lastTime = now;
+      progressRef.current += delta;
+      if (progressRef.current >= currentSong.duration) { progressRef.current = 0; playNext(); return; }
+      tick(progressRef.current, currentSong.duration);
+      raf = requestAnimationFrame(step);
+    };
+    if (isPlaying && currentSong && !currentSong.audioUrl) {
+      lastTime = performance.now();
+      raf = requestAnimationFrame(step);
+    }
+    return () => { if (raf) cancelAnimationFrame(raf); };
+  }, [isPlaying, currentSong]);
+
   const playSong = useCallback((song, newQueue = null, index = 0) => {
     setCurrentSong(song);
     if (newQueue) { setQueue(newQueue); setQueueIndex(index); }
     setIsPlaying(true);
+    progressRef.current = 0;
+    durationRef.current = song.duration;
+    tick(0, song.duration);
     const audio = audioRef.current;
     if (song.audioUrl) { audio.src = song.audioUrl; audio.play().catch(() => {}); }
-    else { audio.src = ""; setDuration(song.duration); setProgress(0); }
-  }, []);
+    else { audio.pause(); audio.src = ""; }
+  }, [tick]);
 
-  useEffect(() => {
-    let interval;
-    if (isPlaying && currentSong && !currentSong.audioUrl) {
-      interval = setInterval(() => {
-        setProgress((prev) => { if (prev >= currentSong.duration) { playNext(); return 0; } return prev + 0.25; });
-      }, 250);
-    }
-    return () => clearInterval(interval);
-  }, [isPlaying, currentSong]);
-
-  const togglePlay = () => { if (!currentSong) return; if (currentSong.audioUrl) { if (isPlaying) audioRef.current.pause(); else audioRef.current.play().catch(() => {}); } setIsPlaying(!isPlaying); };
+  const togglePlay = () => {
+    if (!currentSong) return;
+    if (currentSong.audioUrl) { if (isPlaying) audioRef.current.pause(); else audioRef.current.play().catch(() => {}); }
+    setIsPlaying(!isPlaying);
+  };
 
   const playNext = useCallback(() => {
     if (queue.length === 0) return;
     const nextIndex = shuffleOn ? Math.floor(Math.random() * queue.length) : (queueIndex + 1) % queue.length;
-    setQueueIndex(nextIndex); playSong(queue[nextIndex], null, nextIndex);
+    setQueueIndex(nextIndex);
+    playSong(queue[nextIndex], null, nextIndex);
   }, [queue, queueIndex, shuffleOn, playSong]);
 
   const playPrev = useCallback(() => {
     if (queue.length === 0) return;
-    if (progress > 3) { setProgress(0); if (audioRef.current.src) audioRef.current.currentTime = 0; return; }
+    if (progressRef.current > 3) {
+      progressRef.current = 0;
+      tick(0, currentSong?.duration || 0);
+      if (audioRef.current.src) audioRef.current.currentTime = 0;
+      return;
+    }
     const prevIndex = queueIndex === 0 ? queue.length - 1 : queueIndex - 1;
-    setQueueIndex(prevIndex); playSong(queue[prevIndex], null, prevIndex);
-  }, [queue, queueIndex, progress, playSong]);
+    setQueueIndex(prevIndex);
+    playSong(queue[prevIndex], null, prevIndex);
+  }, [queue, queueIndex, playSong, tick, currentSong]);
 
   const seekTo = (e) => {
+    if (!currentSong) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+    if (clientX === undefined) return;
     const ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
-    const newTime = ratio * (currentSong?.duration || duration);
-    setProgress(newTime); if (audioRef.current.src) audioRef.current.currentTime = newTime;
+    const dur = currentSong.duration || durationRef.current;
+    const newTime = ratio * dur;
+    progressRef.current = newTime;
+    tick(newTime, dur);
+    if (audioRef.current && audioRef.current.src) audioRef.current.currentTime = newTime;
   };
 
   const navigate = (view, data = null) => { setNavHistory((h) => [...h, { view: currentView, data: viewData }]); setNavFuture([]); setCurrentView(view); setViewData(data); };
@@ -685,22 +732,19 @@ export default function SpotifyClone() {
     };
   }, [searchQuery, albums, artists]);
 
-  const progressPct = currentSong ? (progress / (currentSong.duration || duration || 1)) * 100 : 0;
   const pad = isMobile ? 12 : 24;
   const pb = (active) => ({ background: "none", border: "none", color: active ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transition: "color 0.15s", minWidth: 32, minHeight: 32 });
 
-  // ---- COMPONENTS ----
+  // ---- COMPONENTS (no useState for hover — use DOM events) ----
 
-  const Card = ({ title, subtitle, imgUrl, onClick, isRound }) => {
-    return (
-      <div style={{ background: theme.bgSurface, borderRadius: 8, padding: isMobile ? 10 : 16, cursor: "pointer", transition: "background 0.2s", position: "relative" }}
-        onClick={onClick} onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = theme.bgSurface}>
-        <img src={imgUrl || "https://picsum.photos/seed/default/300/300"} alt={title} style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: isRound ? "50%" : 6, marginBottom: isMobile ? 8 : 12, boxShadow: "0 8px 24px rgba(0,0,0,.5)" }} />
-        <div style={{ fontWeight: 700, fontSize: isMobile ? 13 : 15, color: theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</div>
-        <div style={{ fontSize: isMobile ? 11 : 13, color: theme.textSecondary, marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{subtitle}</div>
-      </div>
-    );
-  };
+  const Card = ({ title, subtitle, imgUrl, onClick, isRound }) => (
+    <div style={{ background: theme.bgSurface, borderRadius: 8, padding: isMobile ? 10 : 16, cursor: "pointer", transition: "background 0.2s" }}
+      onClick={onClick} onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = theme.bgSurface}>
+      <img src={imgUrl || "https://picsum.photos/seed/default/300/300"} alt={title} style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: isRound ? "50%" : 6, marginBottom: isMobile ? 8 : 12, boxShadow: "0 8px 24px rgba(0,0,0,.5)" }} />
+      <div style={{ fontWeight: 700, fontSize: isMobile ? 13 : 15, color: theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</div>
+      <div style={{ fontSize: isMobile ? 11 : 13, color: theme.textSecondary, marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{subtitle}</div>
+    </div>
+  );
 
   const TrackRow = ({ song, index, showAlbum = true, showCover = true, onPlay }) => {
     const isActive = currentSong?.id === song.id;
@@ -713,25 +757,23 @@ export default function SpotifyClone() {
             <div style={{ fontWeight: 600, color: isActive ? theme.primary : theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: 14 }}>{song.title}</div>
             <div style={{ fontSize: 12, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.artist}{showAlbum ? ` \u00B7 ${song.album}` : ""}</div>
           </div>
-          <span style={{ color: theme.textSubdued, fontSize: 12 }}>{formatTime(song.duration)}</span>
+          <span style={{ color: theme.textSubdued, fontSize: 12, flexShrink: 0 }}>{formatTime(song.duration)}</span>
         </div>
       );
     }
     return (
-      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", color: isActive ? theme.primary : theme.textPrimary, transition: "background 0.15s", gap: 16 }}
+      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", transition: "background 0.15s", gap: 16 }}
         onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"} onClick={() => onPlay?.()}>
-        <div style={{ fontSize: 15, color: theme.textSecondary, textAlign: "center", width: 40 }}>
-          {isActive && isPlaying ? <span style={{ color: theme.primary }}>&#9835;</span> : index + 1}
-        </div>
+        <div style={{ fontSize: 15, color: theme.textSecondary, textAlign: "center" }}>{isActive && isPlaying ? <span style={{ color: theme.primary }}>&#9835;</span> : index + 1}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
           {showCover && <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />}
           <div style={{ minWidth: 0 }}>
             <div style={{ fontWeight: 600, color: isActive ? theme.primary : theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.title}</div>
-            <div style={{ fontSize: 13, color: theme.textSecondary, cursor: "pointer", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={(e) => { e.stopPropagation(); navigate("artist", { name: song.artist }); }}>{song.artist}</div>
+            <div style={{ fontSize: 13, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={(e) => { e.stopPropagation(); navigate("artist", { name: song.artist }); }}>{song.artist}</div>
           </div>
         </div>
-        <div style={{ fontSize: 14, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", cursor: "pointer" }} onClick={(e) => { e.stopPropagation(); navigate("album", { name: song.album }); }}>{showAlbum ? song.album : ""}</div>
-        <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: "flex-end" }}>
+        <div style={{ fontSize: 14, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={(e) => { e.stopPropagation(); navigate("album", { name: song.album }); }}>{showAlbum ? song.album : ""}</div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
           <span style={{ color: theme.textSecondary, fontSize: 14 }}>{formatTime(song.duration)}</span>
         </div>
       </div>
@@ -745,109 +787,10 @@ export default function SpotifyClone() {
     </div>
   );
 
-  // ---- MOBILE: Full-screen Now Playing ----
-  const MobileNowPlaying = () => {
-    if (!currentSong) return null;
-    return (
-      <div style={{ position: "fixed", inset: 0, zIndex: 50, background: theme.bgBase, display: "flex", flexDirection: "column", padding: "16px 24px", overflow: "auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
-          <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => { setShowNowPlaying(false); setMobileLyrics(false); }}><Icons.ChevronDown /></button>
-          <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: theme.textSecondary }}>Now Playing</div>
-          <button style={{ background: "none", border: "none", color: mobileLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => setMobileLyrics(!mobileLyrics)}><Icons.Lyrics /></button>
-        </div>
-        {!mobileLyrics ? (<>
-          <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 8px" }}>
-            <img src={currentSong.coverUrl} alt="" style={{ width: "100%", maxWidth: 340, aspectRatio: "1", borderRadius: 8, objectFit: "cover", boxShadow: "0 8px 40px rgba(0,0,0,.6)" }} />
-          </div>
-          <div style={{ marginTop: 24, marginBottom: 16 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ minWidth: 0, flex: 1 }}>
-                <div style={{ fontSize: 20, fontWeight: 700, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
-                <div style={{ fontSize: 14, color: theme.textSecondary, marginTop: 4 }}>{currentSong.artist}</div>
-              </div>
-              <span style={{ cursor: "pointer", color: liked[currentSong.id] ? theme.primary : theme.textSecondary, flexShrink: 0, marginLeft: 12 }}
-                onClick={() => setLiked((l) => ({ ...l, [currentSong.id]: !l[currentSong.id] }))}><Icons.Heart filled={liked[currentSong.id]} /></span>
-            </div>
-          </div>
-          <div>
-            <div style={{ height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer", position: "relative" }} onClick={seekTo} onTouchEnd={seekTo}>
-              <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: `${progressPct}%`, position: "relative" }}>
-                <div style={{ position: "absolute", right: -6, top: -4, width: 12, height: 12, borderRadius: "50%", background: theme.textPrimary }} />
-              </div>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
-              <span style={{ fontSize: 11, color: theme.textSubdued }}>{formatTime(progress)}</span>
-              <span style={{ fontSize: 11, color: theme.textSubdued }}>{formatTime(currentSong.duration)}</span>
-            </div>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 8px 24px" }}>
-            <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
-            <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
-            <button style={{ width: 64, height: 64, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>
-              {isPlaying ? <Icons.Pause size={28} /> : <Icons.Play size={28} />}
-            </button>
-            <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playNext}><Icons.SkipNext size={28} /></button>
-            <button style={pb(repeatMode > 0)} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat /></button>
-          </div>
-        </>) : (
-          <div style={{ flex: 1, overflowY: "auto", padding: "8px 0" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 24 }}>
-              <img src={currentSong.coverUrl} alt="" style={{ width: 48, height: 48, borderRadius: 4 }} />
-              <div><div style={{ fontWeight: 700, fontSize: 16 }}>{currentSong.title}</div><div style={{ fontSize: 13, color: theme.textSecondary }}>{currentSong.artist}</div></div>
-            </div>
-            <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 2, color: theme.textPrimary, whiteSpace: "pre-wrap" }}>{currentSong.lyrics || "No lyrics available."}</div>
-          </div>
-        )}
-      </div>
-    );
-  };
-
-  // ---- MOBILE: Mini player bar ----
-  const MobileMiniPlayer = () => {
-    if (!currentSong || !isMobile) return null;
-    return (
-      <div style={{ position: "fixed", bottom: 56, left: 0, right: 0, zIndex: 25, background: theme.bgElevated, borderTop: `1px solid ${theme.divider}22` }}>
-        <div style={{ height: 2, background: theme.bgHighlight }}><div style={{ height: "100%", background: theme.primary, width: `${progressPct}%` }} /></div>
-        <div style={{ display: "flex", alignItems: "center", padding: "8px 12px", gap: 10 }} onClick={() => setShowNowPlaying(true)}>
-          <img src={currentSong.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover" }} />
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ fontWeight: 600, fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
-            <div style={{ fontSize: 11, color: theme.textSecondary }}>{currentSong.artist}</div>
-          </div>
-          <span style={{ cursor: "pointer", color: liked[currentSong.id] ? theme.primary : theme.textSecondary }}
-            onClick={(e) => { e.stopPropagation(); setLiked((l) => ({ ...l, [currentSong.id]: !l[currentSong.id] })); }}><Icons.Heart filled={liked[currentSong.id]} /></span>
-          <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }}
-            onClick={(e) => { e.stopPropagation(); togglePlay(); }}>{isPlaying ? <Icons.Pause size={24} /> : <Icons.Play size={24} />}</button>
-        </div>
-      </div>
-    );
-  };
-
-  // ---- MOBILE: Bottom tab bar ----
-  const MobileTabBar = () => {
-    if (!isMobile) return null;
-    const tabs = [
-      { id: "home", label: "Home", icon: (a) => a ? <Icons.HomeFilled size={24} /> : <Icons.Home size={24} /> },
-      { id: "search", label: "Search", icon: () => <Icons.Search size={24} /> },
-      { id: "library", label: "Your Library", icon: () => <Icons.Library size={24} /> },
-    ];
-    return (
-      <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 25, background: theme.bgSidebar, borderTop: `1px solid ${theme.divider}33`, display: "flex", justifyContent: "space-around", padding: "6px 0 10px", paddingBottom: "max(10px, env(safe-area-inset-bottom))" }}>
-        {tabs.map((tab) => {
-          const isActive = currentView === tab.id;
-          return (<button key={tab.id} onClick={() => { setCurrentView(tab.id); setViewData(null); }}
-            style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 2, color: isActive ? theme.textPrimary : theme.textSubdued, fontSize: 10, fontWeight: isActive ? 700 : 500, padding: "4px 16px" }}>
-            {tab.icon(isActive)}<span>{tab.label}</span>
-          </button>);
-        })}
-      </div>
-    );
-  };
-
   // ---- VIEWS ----
-  const HeroBanner = ({ img, type, title, meta, children }) => (
+  const HeroBanner = ({ img, type, title, meta }) => (
     <div style={{ display: "flex", alignItems: isMobile ? "center" : "flex-end", flexDirection: isMobile ? "column" : "row", textAlign: isMobile ? "center" : "left", padding: isMobile ? "24px 16px 16px" : "40px 24px 24px", gap: isMobile ? 16 : 24, background: `linear-gradient(transparent 0, ${theme.bgBase}99 100%), url(${img}) center/cover`, minHeight: isMobile ? 200 : 280 }}>
-      {children || <img src={img} alt="" style={{ width: isMobile ? 160 : 220, height: isMobile ? 160 : 220, borderRadius: 6, objectFit: "cover", boxShadow: "0 4px 60px rgba(0,0,0,.5)", flexShrink: 0 }} />}
+      <img src={img} alt="" style={{ width: isMobile ? 160 : 220, height: isMobile ? 160 : 220, borderRadius: 6, objectFit: "cover", boxShadow: "0 4px 60px rgba(0,0,0,.5)", flexShrink: 0 }} />
       <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 0, alignItems: isMobile ? "center" : "flex-start" }}>
         <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1 }}>{type}</div>
         <div style={{ fontSize: isMobile ? 28 : 48, fontWeight: 900, lineHeight: 1.1 }}>{title}</div>
@@ -859,24 +802,25 @@ export default function SpotifyClone() {
   const ActionRow = ({ songs }) => (
     <div style={{ display: "flex", alignItems: "center", gap: 16, padding: isMobile ? "12px 16px" : "16px 24px", justifyContent: isMobile ? "center" : "flex-start" }}>
       <button style={{ width: 56, height: 56, borderRadius: "50%", background: theme.primary, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#000", boxShadow: "0 8px 16px rgba(0,0,0,.3)" }} onClick={() => playSongFromList(songs, 0)}><Icons.Play size={24} /></button>
-      <button style={{ ...pb(shuffleOn), transform: "scale(1.3)" }} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
+      <button style={{ ...pb(shuffleOn), transform: "scale(1.3)" }} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle size={22} /></button>
     </div>
   );
 
   const HomeView = () => {
     const topSongs = CONFIG.songs.slice(0, 6);
-    const recentMix = CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6);
+    const recentMix = useMemo(() => CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6), []);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning trencher" : new Date().getHours() < 18 ? "afternoon trencher" : "evening trencher"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
-          {topSongs.map((song) => {
-            return (<div key={song.id} className="quick-pick" style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64, position: "relative" }}
-              onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = `${theme.bgElevated}88`} onClick={() => playSongFromList(CONFIG.songs, CONFIG.songs.indexOf(song))}>
+          {topSongs.map((song) => (
+            <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
+              onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = `${theme.bgElevated}88`}
+              onClick={() => playSongFromList(CONFIG.songs, CONFIG.songs.indexOf(song))}>
               <img src={song.coverUrl} alt="" style={{ width: isMobile ? 48 : 64, height: isMobile ? 48 : 64, objectFit: "cover" }} />
               <span style={{ padding: isMobile ? "0 8px" : "0 16px", fontWeight: 700, fontSize: isMobile ? 11 : 14, flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.title}</span>
-            </div>);
-          })}
+            </div>
+          ))}
         </div>
       </div>
       {[
@@ -910,7 +854,7 @@ export default function SpotifyClone() {
       {!hasQuery && (<div style={{ padding: `0 ${pad}px ${pad}px` }}>
         <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>Browse All</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(180px, 1fr))", gap: isMobile ? 10 : 16 }}>
-          {genres.map((g, i) => (<div key={g} onClick={() => setSearchQuery(g)} style={{ background: genreColors[i], borderRadius: 8, padding: isMobile ? 14 : 20, cursor: "pointer", height: isMobile ? 80 : 120, fontWeight: 700, fontSize: isMobile ? 16 : 22, overflow: "hidden" }}>{g}</div>))}
+          {genres.map((g, i) => (<div key={g} onClick={() => setSearchQuery(g)} style={{ background: genreColors[i], borderRadius: 8, padding: isMobile ? 14 : 20, cursor: "pointer", height: isMobile ? 80 : 120, fontWeight: 700, fontSize: isMobile ? 16 : 22 }}>{g}</div>))}
         </div>
       </div>)}
       {hasQuery && (<div style={{ padding: `0 ${pad}px ${pad}px` }}>
@@ -964,13 +908,13 @@ export default function SpotifyClone() {
     return (<div>
       <div style={{ display: "flex", alignItems: isMobile ? "center" : "flex-end", flexDirection: isMobile ? "column" : "row", textAlign: isMobile ? "center" : "left", padding: isMobile ? "24px 16px 16px" : "40px 24px 24px", gap: isMobile ? 16 : 24, background: `linear-gradient(transparent 0, ${theme.bgBase} 100%), url(${artist.coverUrl}) center/cover`, minHeight: isMobile ? 200 : 320 }}>
         <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 0, alignItems: isMobile ? "center" : "flex-start" }}>
-          <div style={{ fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}><span style={{ width: 20, height: 20, borderRadius: "50%", background: "#3d91f4", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 10 }}>&#10003;</span> Verified Artist</div>
+          <div style={{ fontSize: 12, fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}><span style={{ width: 20, height: 20, borderRadius: "50%", background: "#3d91f4", display: "inline-flex", alignItems: "center", justifyContent: "center", fontSize: 10 }}>&#10003;</span> Verified Artist</div>
           <div style={{ fontSize: isMobile ? 36 : 64, fontWeight: 900, lineHeight: 1.1 }}>{artist.name}</div>
           <div style={{ fontSize: isMobile ? 12 : 14, color: theme.textSecondary }}>{artist.songs.length} song{artist.songs.length > 1 ? "s" : ""}</div>
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 16, padding: isMobile ? "12px 16px" : "16px 24px", justifyContent: isMobile ? "center" : "flex-start" }}>
-        <button style={{ width: 56, height: 56, borderRadius: "50%", background: theme.primary, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#000", boxShadow: "0 8px 16px rgba(0,0,0,.3)" }} onClick={() => playSongFromList(artist.songs, 0)}><Icons.Play size={24} /></button>
+        <button style={{ width: 56, height: 56, borderRadius: "50%", background: theme.primary, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#000" }} onClick={() => playSongFromList(artist.songs, 0)}><Icons.Play size={24} /></button>
         <button style={{ background: "transparent", border: `1px solid ${theme.textSecondary}`, color: theme.textPrimary, padding: "6px 16px", borderRadius: 20, cursor: "pointer", fontSize: 13, fontWeight: 700 }}>Follow</button>
       </div>
       <div style={{ padding: `0 ${pad}px ${pad}px` }}>
@@ -998,8 +942,9 @@ export default function SpotifyClone() {
   return (
     <div style={{ display: "flex", flexDirection: "column", height: "100vh", width: "100vw", background: theme.bgBase, color: theme.textPrimary, fontFamily: "'Segoe UI', 'Helvetica Neue', Arial, sans-serif", overflow: "hidden", fontSize: 14 }}>
       <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+
         {/* SIDEBAR - desktop only */}
-        {!isMobile && (<div style={{ width: sidebarCollapsed ? 72 : 280, minWidth: sidebarCollapsed ? 72 : 280, background: theme.bgSidebar, display: "flex", flexDirection: "column", overflow: "hidden", borderRight: `1px solid ${theme.divider}22` }}>
+        {!isMobile && (<div style={{ width: 280, minWidth: 280, background: theme.bgSidebar, display: "flex", flexDirection: "column", overflow: "hidden", borderRight: `1px solid ${theme.divider}22` }}>
           <div style={{ padding: "16px 20px", display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }} onClick={() => { setCurrentView("home"); setViewData(null); }}>
             {CONFIG.logoUrl ? <img src={CONFIG.logoUrl} alt="Logo" style={{ height: 32, objectFit: "contain" }} /> : <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: -0.5 }}>{CONFIG.logoText}</div>}
           </div>
@@ -1033,8 +978,8 @@ export default function SpotifyClone() {
           <div style={{ position: "sticky", top: 0, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: isMobile ? "8px 12px" : "12px 24px", background: `${theme.bgBase}dd`, backdropFilter: "blur(20px)", gap: 8 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flex: 1 }}>
               {isMobile && navHistory.length > 0 && (<button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: "transparent", color: theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={goBack}><Icons.ChevronLeft /></button>)}
-              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navHistory.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><svg viewBox="0 0 24 24" style={{width:28,height:28,minWidth:28,minHeight:28}} fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>}
-              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navFuture.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><svg viewBox="0 0 24 24" style={{width:28,height:28,minWidth:28,minHeight:28}} fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>}
+              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><Icons.ChevronLeft size={28} /></button>}
+              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><Icons.ChevronRight size={28} /></button>}
               {currentView === "search" && (
                 <div style={{ display: "flex", alignItems: "center", background: theme.bgElevated, borderRadius: 24, padding: "8px 16px", gap: 8, flex: 1, maxWidth: isMobile ? "100%" : 480 }}>
                   <Icons.Search size={18} />
@@ -1086,34 +1031,127 @@ export default function SpotifyClone() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1, maxWidth: 600 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
-            <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M13.151 6.252c-.063.037-.112.09-.173.126L8.891 8.85l1.009 1.735 2.972-1.8 4.26 7.205-1.563.898 3.168 3.048 1.103-4.292-1.535.882-4.727-7.998c-.063-.112-.153-.196-.24-.28l-.002-.001a1.237 1.237 0 00-.185-.151zM5.636 8.85L4 9.792l4.974 8.423 1.636-.942L5.636 8.85zm10.893.124l-1.563.898 2.112 3.572 1.535-.882-2.084-3.588zm-6.01 4.692L9.51 15.4l1.803 3.051 1.009-1.735-1.803-3.05z"/></svg></button>
-            <button style={pb(false)} onClick={playPrev}><svg viewBox="0 0 24 24" style={{width:28,height:28,minWidth:28,minHeight:28}} fill="currentColor"><path d="M6.3 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7v-6.805l11.95 6.899A.7.7 0 0021.6 19.788V4.212a.7.7 0 00-1.05-.606L8.6 10.505V3.7a.7.7 0 00-.7-.7H6.3z"/></svg></button>
-            <button style={{ width: 48, height: 48, minWidth: 48, minHeight: 48, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <svg viewBox="0 0 24 24" style={{width:24,height:24,minWidth:24,minHeight:24}} fill="currentColor"><path d="M5.7 3a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7H5.7zm10 0a.7.7 0 00-.7.7v16.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-2.6z"/></svg> : <svg viewBox="0 0 24 24" style={{width:24,height:24,minWidth:24,minHeight:24}} fill="currentColor"><path d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z"/></svg>}</button>
-            <button style={pb(false)} onClick={playNext}><svg viewBox="0 0 24 24" style={{width:28,height:28,minWidth:28,minHeight:28}} fill="currentColor"><path d="M17.7 3a.7.7 0 00-.7.7v6.805L5.05 3.606A.7.7 0 004 4.212v15.576a.7.7 0 001.05.606L17 13.495V20.3a.7.7 0 00.7.7h1.6a.7.7 0 00.7-.7V3.7a.7.7 0 00-.7-.7h-1.6z"/></svg></button>
-            <button style={{...pb(repeatMode > 0), position: "relative"}} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M5.5 5h13a4.5 4.5 0 010 9H8.207l2.147-2.146a.5.5 0 00-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708-.708L8.207 15H18.5a3.5 3.5 0 100-7h-13a.5.5 0 010-1H18.5a4.5 4.5 0 010 9H5.5a.5.5 0 010-1z"/></svg>{repeatMode === 2 && <span style={{ fontSize: 10, position: "absolute", bottom: 0, right: 0, fontWeight: 700 }}>1</span>}</button>
+            <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle size={22} /></button>
+            <button style={pb(false)} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
+            <button style={{ width: 48, height: 48, minWidth: 48, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <Icons.Pause size={24} /> : <Icons.Play size={24} />}</button>
+            <button style={pb(false)} onClick={playNext}><Icons.SkipNext size={28} /></button>
+            <button style={{...pb(repeatMode > 0), position: "relative"}} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat size={22} />{repeatMode === 2 && <span style={{ fontSize: 10, position: "absolute", bottom: 0, right: 0, fontWeight: 700 }}>1</span>}</button>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", marginTop: 4 }}>
-            <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36, textAlign: "right" }}>{formatTime(progress)}</span>
-            <div ref={progressBarRef} style={{ flex: 1, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative" }} onClick={seekTo}>
-              <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: `${progressPct}%`, position: "relative" }}><div style={{ position: "absolute", right: -7, top: -5, width: 14, height: 14, borderRadius: "50%", background: theme.textPrimary }} /></div>
+            <span ref={dpTime} style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36, textAlign: "right" }}>0:00</span>
+            <div style={{ flex: 1, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative" }} onClick={seekTo}>
+              <div ref={dpFill} style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: "0%", position: "relative" }}><div style={{ position: "absolute", right: -7, top: -5, width: 14, height: 14, borderRadius: "50%", background: theme.textPrimary }} /></div>
             </div>
-            <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36 }}>{formatTime(currentSong?.duration || duration)}</span>
+            <span ref={dpEnd} style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36 }}>{currentSong ? formatTime(currentSong.duration) : "0:00"}</span>
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16, flex: 1, justifyContent: "flex-end" }}>
-          <button style={pb(showLyrics)} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/></svg></button>
-          <button style={pb(showQueue)} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/></svg></button>
-          <button style={pb(false)} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4zM22.71 12l2.15-2.15a1 1 0 00-1.42-1.42L21.29 10.58l-2.15-2.15a1 1 0 00-1.42 1.42l2.15 2.15-2.15 2.15a1 1 0 001.42 1.42l2.15-2.15 2.15 2.15a1 1 0 001.42-1.42z"/></svg> : <svg viewBox="0 0 24 24" style={{width:22,height:22,minWidth:22,minHeight:22}} fill="currentColor"><path d="M18.36 19.36a1 1 0 01-.7-1.71 7.33 7.33 0 000-10.36 1 1 0 011.41-1.41 9.33 9.33 0 010 13.18 1 1 0 01-.71.3zM15.54 16.54a1 1 0 01-.71-.3 1 1 0 010-1.41 3.93 3.93 0 000-5.54 1 1 0 011.42-1.42 5.93 5.93 0 010 8.37 1 1 0 01-.71.3zM12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4z"/></svg>}</button>
+          <button style={pb(showLyrics)} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><Icons.Lyrics size={22} /></button>
+          <button style={pb(showQueue)} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><Icons.Queue size={22} /></button>
+          <button style={pb(false)} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <Icons.VolumeMute size={22} /> : <Icons.Volume size={22} />}</button>
           <div style={{ width: 120, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer" }} onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); setVolume(Math.round(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * 100)); setIsMuted(false); }}>
             <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: `${isMuted ? 0 : volume}%` }} />
           </div>
         </div>
       </div>)}
 
-      {/* MOBILE ELEMENTS */}
-      <MobileMiniPlayer />
-      <MobileTabBar />
-      {showNowPlaying && isMobile && <MobileNowPlaying />}
+      {/* MOBILE: Mini player */}
+      {currentSong && isMobile && !showNowPlaying && (
+        <div style={{ position: "fixed", bottom: 56, left: 0, right: 0, zIndex: 25, background: theme.bgElevated, borderTop: `1px solid ${theme.divider}22` }}>
+          <div style={{ height: 2, background: theme.bgHighlight }}><div ref={mpFill} style={{ height: "100%", background: theme.primary, width: "0%" }} /></div>
+          <div style={{ display: "flex", alignItems: "center", padding: "8px 12px", gap: 10 }} onClick={() => setShowNowPlaying(true)}>
+            <img src={currentSong.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover" }} />
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontWeight: 600, fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
+              <div style={{ fontSize: 11, color: theme.textSecondary }}>{currentSong.artist}</div>
+            </div>
+            <span style={{ cursor: "pointer", color: liked[currentSong.id] ? theme.primary : theme.textSecondary }}
+              onClick={(e) => { e.stopPropagation(); setLiked((l) => ({ ...l, [currentSong.id]: !l[currentSong.id] })); }}><Icons.Heart filled={liked[currentSong.id]} /></span>
+            <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }}
+              onClick={(e) => { e.stopPropagation(); togglePlay(); }}>{isPlaying ? <Icons.Pause size={24} /> : <Icons.Play size={24} />}</button>
+          </div>
+        </div>
+      )}
+
+      {/* MOBILE: Tab bar */}
+      {isMobile && (
+        <div style={{ position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 25, background: theme.bgSidebar, borderTop: `1px solid ${theme.divider}33`, display: "flex", justifyContent: "space-around", padding: "6px 0 10px", paddingBottom: "max(10px, env(safe-area-inset-bottom))" }}>
+          {[{ id: "home", label: "Home", icon: (a) => a ? <Icons.HomeFilled size={24} /> : <Icons.Home size={24} /> },
+            { id: "search", label: "Search", icon: () => <Icons.Search size={24} /> },
+            { id: "library", label: "Your Library", icon: () => <Icons.Library size={24} /> }
+          ].map((tab) => (
+            <button key={tab.id} onClick={() => { setCurrentView(tab.id); setViewData(null); }}
+              style={{ background: "none", border: "none", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 2, color: currentView === tab.id ? theme.textPrimary : theme.textSubdued, fontSize: 10, fontWeight: currentView === tab.id ? 700 : 500, padding: "4px 16px" }}>
+              {tab.icon(currentView === tab.id)}<span>{tab.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+
+      {/* MOBILE: Full-screen Now Playing */}
+      {showNowPlaying && isMobile && currentSong && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 50, background: theme.bgBase, display: "flex", flexDirection: "column" }}>
+          {/* Header */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", flexShrink: 0 }}>
+            <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => { setShowNowPlaying(false); setMobileLyrics(false); }}><Icons.ChevronDown size={28} /></button>
+            <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: theme.textSecondary }}>Now Playing</div>
+            <button style={{ background: "none", border: "none", color: mobileLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => setMobileLyrics(!mobileLyrics)}><Icons.Lyrics size={24} /></button>
+          </div>
+
+          {!mobileLyrics ? (
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "0 24px 24px", overflow: "hidden" }}>
+              {/* Album art */}
+              <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <img src={currentSong.coverUrl} alt="" style={{ width: "100%", maxWidth: 340, aspectRatio: "1", borderRadius: 8, objectFit: "cover", boxShadow: "0 8px 40px rgba(0,0,0,.6)" }} />
+              </div>
+              {/* Song info */}
+              <div style={{ marginTop: 24, marginBottom: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <div style={{ fontSize: 20, fontWeight: 700, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
+                  <div style={{ fontSize: 14, color: theme.textSecondary, marginTop: 4 }}>{currentSong.artist}</div>
+                </div>
+                <span style={{ cursor: "pointer", color: liked[currentSong.id] ? theme.primary : theme.textSecondary, flexShrink: 0, marginLeft: 12 }}
+                  onClick={() => setLiked((l) => ({ ...l, [currentSong.id]: !l[currentSong.id] }))}><Icons.Heart filled={liked[currentSong.id]} /></span>
+              </div>
+              {/* Progress bar */}
+              <div>
+                <div style={{ height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer" }} onClick={seekTo}>
+                  <div ref={npFill} style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: "0%", position: "relative" }}>
+                    <div style={{ position: "absolute", right: -6, top: -4, width: 12, height: 12, borderRadius: "50%", background: theme.textPrimary }} />
+                  </div>
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
+                  <span ref={npTime} style={{ fontSize: 11, color: theme.textSubdued }}>0:00</span>
+                  <span style={{ fontSize: 11, color: theme.textSubdued }}>{formatTime(currentSong.duration)}</span>
+                </div>
+              </div>
+              {/* Controls */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 8px 0" }}>
+                <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
+                <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
+                <button style={{ width: 64, height: 64, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>
+                  {isPlaying ? <Icons.Pause size={28} /> : <Icons.Play size={28} />}
+                </button>
+                <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playNext}><Icons.SkipNext size={28} /></button>
+                <button style={pb(repeatMode > 0)} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat /></button>
+              </div>
+            </div>
+          ) : (
+            /* LYRICS VIEW - completely isolated scrollable container */
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "0 24px 16px", flexShrink: 0 }}>
+                <img src={currentSong.coverUrl} alt="" style={{ width: 48, height: 48, borderRadius: 4 }} />
+                <div><div style={{ fontWeight: 700, fontSize: 16 }}>{currentSong.title}</div><div style={{ fontSize: 13, color: theme.textSecondary }}>{currentSong.artist}</div></div>
+              </div>
+              <div style={{ flex: 1, overflowY: "scroll", WebkitOverflowScrolling: "touch", padding: "0 24px", minHeight: 0 }}>
+                <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 2, color: theme.textPrimary, whiteSpace: "pre-wrap", paddingBottom: 80 }}>
+                  {currentSong.lyrics || "No lyrics available."}
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
