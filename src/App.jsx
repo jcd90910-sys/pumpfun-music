@@ -308,7 +308,7 @@ Tennessee Trader deep in the grind`,
     },
     {
       id: "5",
-      title: "Blockchain",
+      title: "B L O C K C H A I N",
       artist: "Money Man",
       album: "Single",
       duration: 139,
