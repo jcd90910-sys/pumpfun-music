@@ -386,20 +386,73 @@ Gotta cash out, I ain't doin' no credit`,
       album: "Crypto Bubble",
       duration: 135,
       audioUrl: "/songs/1771324235457772.m4a",
-      coverUrl: "/covers/Screenshot 2026-02-17 at 1.10.12 AM.png",
-      lyrics: `[Verse 1]
-Spark ignites, the flames grow higher
-Burning brighter with desire
-Can't contain this raging fire
-Taking us higher and higher
+      coverUrl: "/covers/Screenshot 2026-02-17 at 1.10.12 AM.png",
+      lyrics: `(Yeah)
+It's Lil Bubble
+Boutta hit them with the freestyle real quick
 
-[Chorus]
-We're a wildfire, can't be tamed
-We're a wildfire, unashamed
-Burning bridges, lighting skies
-We're a wildfire in disguise`,
-      genre: "Rock",
-      year: 2024,
+[Verse 1]
+Another day no pump, man its been like a week
+I hit my boy CZ like "what up" on the tweet
+I said "I bought a couple alts but I kept my receipt"
+He said "there's no roll backs" so I HODL and weep
+
+Now my tears falling quicker than the shitcoins
+And I'm wishing that I didn't sell the Bitcoin
+Told my momma what happened
+She said "Shut up you lil bastard"
+She said "You need strong hands like a big boy"
+
+[Verse 2]
+Now who want the smoke?
+This bag's on my shoulder like a boulder, bout to choke
+(yeah)
+A boat load of hopium's the only way I'm coping
+And I'm hoping that it's over soon, I'm over being broke
+(yeah)
+I'm over all the jokes
+I've had it with the bears
+I've had it with the HODL meme bitch, I don't care
+I shoulda bought shares
+I shoulda bought gold
+Shoulda, coulda, woulda man I wish I hadda sold
+
+[Verse 3]
+It goes 0-100 man, real quick 
+Real quick, real fuckin quick
+Then its 100 back to 0 man, real quick
+Man real quick, real quick
+
+[Verse 4]
+Your favourite project's probably sitting in my DM
+I'm only sharing for a Lambo or a BM
+They say "how much for a tweet?"
+I say "what up let me see"
+"A couple btc, or im leaving"
+
+The twitter reach on ya boy's getting silly
+Last song broke at least a couple milly
+I used to get no love
+Now they all showing up
+And I'm pumping like a big green dilly
+
+This lil bubble growing up and he about to go pop
+I made my own lane, and its straight to the top
+And its straight to the shop
+To put a hundred on a wrist
+Lil Bubble is hot
+Yeah Lil Bubble the shit
+
+Yeah Lil Bubble lil lit
+Coming through with the hits
+So line em up and just bounce like Breanna Sparks' tits
+And that isn't a diss, it's a sign of respect
+This beat just got rekt, don't you ever forget
+
+(If they're hatin then maybe they're just forgetting where I started at)
+(Now my view count's bigger than your favourite coin's market cap)`,
+      genre: "Rap",
+      year: 2019,
     },
     {
       id: "7",
