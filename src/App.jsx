@@ -32,10 +32,10 @@ const CONFIG = {
   songs: [
     {
       id: "1",
-      title: "Midnight Dreams",
-      artist: "Luna Echo",
-      album: "Neon Horizons",
-      duration: 157, // seconds
+      title: "F*CK TUAH",
+      artist: "Pmoney Glitxh & YungSol",
+      album: "Blockchain",
+      duration: 133, // seconds
       audioUrl: "/songs/F_CK_TUAH_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k.mp3",
       coverUrl: "https://picsum.photos/seed/album1/300/300",
       lyrics: `[Verse 1]
@@ -66,11 +66,11 @@ Midnight dreams, never let me go`,
     },
     {
       id: "2",
-      title: "Ocean Waves",
-      artist: "The Drift",
-      album: "Coastal Memories",
-      duration: 198,
-      audioUrl: "",
+      title: "Get Rugged",
+      artist: "The Homeless",
+      album: "Single",
+      duration: 67,
+      audioUrl: "/songs/homeless.mp3",
       coverUrl: "https://picsum.photos/seed/album2/300/300",
       lyrics: `[Verse 1]
 Sitting by the shore at dawn
