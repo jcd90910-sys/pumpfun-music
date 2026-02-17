@@ -36,7 +36,7 @@ const CONFIG = {
       artist: "Luna Echo",
       album: "Neon Horizons",
       duration: 157, // seconds
-      audioUrl: "", // Bitcoin_Anthem_(Crypto_Song)_[Solana]_128k.mp3
+      audioUrl: "/songs/Bitcoin_Anthem_(Crypto_Song)_[Solana]_128k.mp3",
       coverUrl: "https://picsum.photos/seed/album1/300/300",
       lyrics: `[Verse 1]
 NIGGER NIGGER NIGGER
