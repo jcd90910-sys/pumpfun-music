@@ -308,25 +308,76 @@ Tennessee Trader deep in the grind`,
     },
     {
       id: "5",
-      title: "Rainy Cafe",
-      artist: "Mellow Keys",
-      album: "Quiet Corners",
-      duration: 187,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album5/300/300",
+      title: "Blockchain",
+      artist: "Money Man",
+      album: "Single",
+      duration: 139,
+      audioUrl: "/songs/Money_Man_-_Blockchain_(Official_Video)_128k.mp3",
+      coverUrl: "/covers/Blockchain.jpeg",
       lyrics: `[Verse 1]
-Steam rising from my cup
-Rain tapping, looking up
-Pages turning, time stands still
-A quiet corner on the hill
+Bought a lil' Polkadot, bought a lil' VChain
+Bought a lil' SafeMoon, houses got a safe room
+Party out in Cancún, fuckin' with the Coinbase-
 
-[Chorus]
-In this rainy cafe, I find my peace
-Where the noise of the world can finally cease
-Watching droplets race the glass
-Moments I wish would always last`,
-      genre: "Lo-fi",
-      year: 2023,
+Pro, got Zcash
+Fuckin' with the Robinhood
+Out, got a free bag
+And I'm on the blockchain, burnin' on blockchain
+Damn, this shit some octane
+Chillin' at the Hawks game, then I hit the trap spot
+
+Just to get some bags off 20K
+In a lil' denim, mad love
+Altcoins in the red, I'ma get 'em half off
+My young nigga hit a lick, he sellin' P's half off
+Imma go to Mars on niggas, Imma blast off
+
+Imma hit Fendi in the mall, Imma cash out
+Bad bitch walkin' 'round the crib with her ass out
+Feds tryna plot on a nigga, but I'm too slick
+Every time you see me on the 'Gram, I'm in a new 'fit
+
+Rich God made a nigga shirt and it's slim fit
+Bad lil' vibe in the room and she slim thick
+She just wanna bend that ass over, she gon' take dick
+New body Escalade, damn, this shit a spaceship
+
+You ain't got at least 20K, don't say shit
+Ridin' in the C8, damn, a nigga feel great
+I be at the spot sellin' bags, I don't tailgate
+I was on the yacht with Tony Hawk talkin' big cake
+
+If you gettin' to the money, then I know you relate
+Got a lot of strains, nigga, I just served three states
+Almost got too faded burnin' on Cheesecake, let's go
+
+[Verse 2]
+She say she want a boss 'cause her boyfriend a cheapskate
+Say she want a boss 'cause her boyfriend a real lame
+Talkin' on IG Live, I be spittin' real game
+Rose gold Audemars, rose and white Cuban chain
+
+50K solitaire earring screwbacks
+I can get a nigga life took for a few racks
+This a new flavor of the month, this a new pack
+Been spent that old dead money, these some new racks
+
+Blueberry Melon in my paper got me relaxed
+Smokers love a nigga, they be callin' me to come back
+Fell off for a minute, but I had to make a comeback
+All I see is hate, nigga, where the fuckin' love at?
+
+I ain't with the broke shit, baby, I'm a rich man
+I ain't feel like slidin' so I might pay a hitman
+Felt like Morray when I was broke, in the quicksand
+If Quay ridin' with me with the chopper, call him stick man
+
+I ain't with the small time shit, call me big man
+He ain't never put no work in, he got soft hands
+Pack just came and it's gone already, nigga
+Gotta cash out, I ain't doin' no credit`,
+      genre: "Rap",
+      year: 2021,
     },
     {
       id: "6",
