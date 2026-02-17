@@ -35,11 +35,11 @@ const CONFIG = {
       title: "Midnight Dreams",
       artist: "Luna Echo",
       album: "Neon Horizons",
-      duration: 214, // seconds
-      audioUrl: "", // Put your audio file URL here
+      duration: 157, // seconds
+      audioUrl: "", // Bitcoin_Anthem_(Crypto_Song)_[Solana]_128k.mp3
       coverUrl: "https://picsum.photos/seed/album1/300/300",
       lyrics: `[Verse 1]
-Walking through the city lights
+NIGGER NIGGER NIGGER
 Everything feels so alive tonight
 The stars are dancing in my eyes
 Under these electric skies
