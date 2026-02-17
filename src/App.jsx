@@ -16,7 +16,7 @@ const CONFIG = {
     primary: "#1DB954",       // Main accent (Spotify green)
     primaryHover: "#1fdd62",  // Accent hover
     bgBase: "#00b853",        // Main background
-    bgSurface: "#00b853",     // Card/surface background
+    bgSurface: "#01ba54",     // Card/surface background
     bgElevated: "#000000",    // Elevated surface (player bar, modals)
     bgHighlight: "#2a2a2a",   // Hover highlight
     textPrimary: "#FFFFFF",   // Main text
