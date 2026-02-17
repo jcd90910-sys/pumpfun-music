@@ -516,7 +516,7 @@ export default function SpotifyClone() {
 
   const progressPct = currentSong ? (progress / (currentSong.duration || duration || 1)) * 100 : 0;
   const pad = isMobile ? 12 : 24;
-  const pb = (active) => ({ background: "none", border: "none", color: active ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4, display: "flex", alignItems: "center", transition: "color 0.15s" });
+  const pb = (active) => ({ background: "none", border: "none", color: active ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transition: "color 0.15s", minWidth: 32, minHeight: 32 });
 
   // ---- COMPONENTS ----
 
@@ -873,8 +873,8 @@ export default function SpotifyClone() {
           <div style={{ position: "sticky", top: 0, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: isMobile ? "8px 12px" : "12px 24px", background: `${theme.bgBase}dd`, backdropFilter: "blur(20px)", gap: 8 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flex: 1 }}>
               {isMobile && navHistory.length > 0 && (<button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: "transparent", color: theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={goBack}><Icons.ChevronLeft /></button>)}
-              {!isMobile && <button style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navHistory.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><Icons.ChevronLeft /></button>}
-              {!isMobile && <button style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navFuture.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><Icons.ChevronRight /></button>}
+              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navHistory.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg></button>}
+              {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navFuture.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg></button>}
               {currentView === "search" && (
                 <div style={{ display: "flex", alignItems: "center", background: theme.bgElevated, borderRadius: 24, padding: "8px 16px", gap: 8, flex: 1, maxWidth: isMobile ? "100%" : 480 }}>
                   <Icons.Search size={18} />
@@ -891,7 +891,7 @@ export default function SpotifyClone() {
 
         {/* LYRICS PANEL - desktop */}
         {showLyrics && currentSong && !isMobile && (
-          <div style={{ position: "fixed", right: 0, top: 0, bottom: 72, width: 400, background: theme.bgElevated, zIndex: 30, padding: 24, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
+          <div style={{ position: "fixed", right: 0, top: 0, bottom: 90, width: 400, background: theme.bgElevated, zIndex: 30, padding: 24, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
               <div style={{ fontWeight: 700, fontSize: 16 }}>{currentSong.title}</div>
               <button style={{ background: "none", border: "none", color: theme.textSecondary, cursor: "pointer" }} onClick={() => setShowLyrics(false)}><Icons.Close /></button>
@@ -902,7 +902,7 @@ export default function SpotifyClone() {
 
         {/* QUEUE PANEL - desktop */}
         {showQueue && !isMobile && (
-          <div style={{ position: "fixed", right: 0, top: 0, bottom: 72, width: 360, background: theme.bgElevated, zIndex: 30, padding: 16, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
+          <div style={{ position: "fixed", right: 0, top: 0, bottom: 90, width: 360, background: theme.bgElevated, zIndex: 30, padding: 16, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
               <div style={{ fontWeight: 700, fontSize: 16 }}>Queue</div>
               <button style={{ background: "none", border: "none", color: theme.textSecondary, cursor: "pointer" }} onClick={() => setShowQueue(false)}><Icons.Close /></button>
@@ -916,7 +916,7 @@ export default function SpotifyClone() {
       </div>
 
       {/* DESKTOP PLAYER BAR */}
-      {!isMobile && (<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 16px", height: 72, background: theme.bgPlayer, borderTop: `1px solid ${theme.divider}` }}>
+      {!isMobile && (<div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px", height: 90, background: theme.bgPlayer, borderTop: `1px solid ${theme.divider}` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1, minWidth: 0 }}>
           {currentSong ? (<>
             <img src={currentSong.coverUrl} alt="" style={{ width: 56, height: 56, borderRadius: 4, objectFit: "cover" }} />
@@ -925,12 +925,12 @@ export default function SpotifyClone() {
           </>) : <div style={{ color: theme.textSubdued, fontSize: 14 }}>No song playing</div>}
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1, maxWidth: 600 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <button style={{...pb(shuffleOn), padding: 6}} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
-            <button style={{...pb(false), padding: 6}} onClick={playPrev}><Icons.SkipPrev size={22} /></button>
-            <button style={{ width: 40, height: 40, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <Icons.Pause size={20} /> : <Icons.Play size={20} />}</button>
-            <button style={{...pb(false), padding: 6}} onClick={playNext}><Icons.SkipNext size={22} /></button>
-            <button style={{...pb(repeatMode > 0), padding: 6, position: "relative"}} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat />{repeatMode === 2 && <span style={{ fontSize: 9, position: "absolute", bottom: -2, right: -2, fontWeight: 700 }}>1</span>}</button>
+          <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+            <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M13.151 6.252c-.063.037-.112.09-.173.126L8.891 8.85l1.009 1.735 2.972-1.8 4.26 7.205-1.563.898 3.168 3.048 1.103-4.292-1.535.882-4.727-7.998c-.063-.112-.153-.196-.24-.28l-.002-.001a1.237 1.237 0 00-.185-.151zM5.636 8.85L4 9.792l4.974 8.423 1.636-.942L5.636 8.85zm10.893.124l-1.563.898 2.112 3.572 1.535-.882-2.084-3.588zm-6.01 4.692L9.51 15.4l1.803 3.051 1.009-1.735-1.803-3.05z"/></svg></button>
+            <button style={pb(false)} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
+            <button style={{ width: 48, height: 48, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <Icons.Pause size={24} /> : <Icons.Play size={24} />}</button>
+            <button style={pb(false)} onClick={playNext}><Icons.SkipNext size={28} /></button>
+            <button style={{...pb(repeatMode > 0), position: "relative"}} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M5.5 5h13a4.5 4.5 0 010 9H8.207l2.147-2.146a.5.5 0 00-.708-.708l-3 3a.5.5 0 000 .708l3 3a.5.5 0 00.708-.708L8.207 15H18.5a3.5 3.5 0 100-7h-13a.5.5 0 010-1H18.5a4.5 4.5 0 010 9H5.5a.5.5 0 010-1z"/></svg>{repeatMode === 2 && <span style={{ fontSize: 10, position: "absolute", bottom: 0, right: 0, fontWeight: 700 }}>1</span>}</button>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", marginTop: 4 }}>
             <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36, textAlign: "right" }}>{formatTime(progress)}</span>
@@ -940,12 +940,12 @@ export default function SpotifyClone() {
             <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36 }}>{formatTime(currentSong?.duration || duration)}</span>
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1, justifyContent: "flex-end" }}>
-          <button style={{...pb(showLyrics), padding: 6}} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><Icons.Lyrics /></button>
-          <button style={{...pb(showQueue), padding: 6}} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><Icons.Queue /></button>
-          <button style={{...pb(false), padding: 6}} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <Icons.VolumeMute /> : <Icons.Volume />}</button>
-          <div style={{ width: 100, height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer" }} onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); setVolume(Math.round(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * 100)); setIsMuted(false); }}>
-            <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: `${isMuted ? 0 : volume}%` }} />
+        <div style={{ display: "flex", alignItems: "center", gap: 16, flex: 1, justifyContent: "flex-end" }}>
+          <button style={pb(showLyrics)} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 3v10.55A4 4 0 1014 17V7h4V3h-6z"/></svg></button>
+          <button style={pb(showQueue)} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z"/></svg></button>
+          <button style={pb(false)} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4zM22.71 12l2.15-2.15a1 1 0 00-1.42-1.42L21.29 10.58l-2.15-2.15a1 1 0 00-1.42 1.42l2.15 2.15-2.15 2.15a1 1 0 001.42 1.42l2.15-2.15 2.15 2.15a1 1 0 001.42-1.42z"/></svg> : <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M18.36 19.36a1 1 0 01-.7-1.71 7.33 7.33 0 000-10.36 1 1 0 011.41-1.41 9.33 9.33 0 010 13.18 1 1 0 01-.71.3zM15.54 16.54a1 1 0 01-.71-.3 1 1 0 010-1.41 3.93 3.93 0 000-5.54 1 1 0 011.42-1.42 5.93 5.93 0 010 8.37 1 1 0 01-.71.3zM12 20l-5-4H3a1 1 0 01-1-1V9a1 1 0 011-1h4l5-4a.5.5 0 01.8.4v15.2a.5.5 0 01-.8.4z"/></svg>}</button>
+          <div style={{ width: 120, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer" }} onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); setVolume(Math.round(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * 100)); setIsMuted(false); }}>
+            <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: `${isMuted ? 0 : volume}%` }} />
           </div>
         </div>
       </div>)}
