@@ -14,7 +14,7 @@ const CONFIG = {
   // ---- THEME COLORS (change these to restyle the entire app) ----
   theme: {
     primary: "#1DB954",       // Main accent (Spotify green)
-    primaryHover: "#1fdd62",  // Accent hover
+    primaryHover: "#058d34",  // Accent hover
     bgBase: "#00b853",        // Main background
     bgSurface: "#01ba54",     // Card/surface background
     bgElevated: "#000000",    // Elevated surface (player bar, modals)
