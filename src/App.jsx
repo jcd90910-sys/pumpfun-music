@@ -13,7 +13,7 @@ const CONFIG = {
 
   // ---- THEME COLORS (change these to restyle the entire app) ----
   theme: {
-    primary: "#1DB954",       // Main accent (Spotify green)
+    primary: "#002a0f",       // Main accent (Spotify green)
     primaryHover: "#000000",  // Accent hover
     bgBase: "#00b853",        // Main background
     bgSurface: "#01ba54",     // Card/surface background
