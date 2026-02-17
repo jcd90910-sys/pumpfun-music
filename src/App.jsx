@@ -160,23 +160,75 @@ You broke ass bitch get rugged nigga`,
     },
     {
       id: "3",
-      title: "Electric Heart",
-      artist: "Volt",
-      album: "Neon Horizons",
-      duration: 245,
-      audioUrl: "",
+      title: "Cryptolations",
+      artist: "Lil Bubble",
+      album: "Crypto Bubble",
+      duration: 146,
+      audioUrl: "/songs/Congratulations_(Post_Malone_Bitcoin_Parody)_BTC_All_Time_High_🚀_128k.mp3",
       coverUrl: "https://picsum.photos/seed/album3/300/300",
-      lyrics: `[Verse 1]
-Circuits running through my veins
-Breaking free from all these chains
-Digital pulse, analog soul
-Together we can make it whole
+      lyrics: `[Chorus]
+My mama called
+Seen you on Twitter son
+Said shit done changed
+Ever since your first song
+I bought it all
+Ever since the first dip
+They said it's tulip mania
+
+Now they always say congratulations
+Longed so hard avoided liquidation
+They ain't ever have the hands or patience
+We kept holding, never sold, and look we made it
+Yeah, we made it
+
+[Verse 1]
+They were never there, no
+Yeah, Now I'm jumping out the Lambo
+Yeah, And my life move slow-mo
+Yeah, when I open Crypto Pro
+Yeah, I'm a genius with the finance
+Yeah, and I buy it all on Binance
+Yeah, Everybody wanna have it
+Yeah, but I didn't buy it last year
+Yeah
+
+[Verse 2]
+Now everybody wishin' that they hadda bought it
+(yeah yeah yeah)
+But it's too late now, 'cause they can't afford it
+(yeah yeah yeah)
+They were too scared just to buy the bottom
+(yeah yeah yeah)
+I was on Bitmex, 100x longin'
+(yeah yeah)
+
+[Verse 3]
+If you got BTC then put your ledgers to the sky
+How can I make sense? I got Satoshis on my mind
+Yeah, they called me crazy when I told 'em they should try
+Now my family's in my inbox asking how to buy
 
 [Chorus]
-Electric heart, beat for me tonight
-Electric heart, burning ever bright
-We're wired up and ready to go
-Electric heart, steal the show`,
+My mama called
+Seen you on Twitter son
+Said shit done changed
+Ever since your first song
+I bought it all
+Ever since the first dip
+They said it's tulip mania
+
+Now they always say congratulations
+Longed so hard avoided liquidation
+They ain't ever have the hands or patience
+We kept holding, never sold, and look we made it
+Yeah, we made it
+
+[Verse 4]
+We were patient
+Yeah, we were patient
+Now we can scream that we made it
+And everywhere everywhere we go they say “gratulations”
+Ooh, yeah`,
       genre: "Electronic",
       year: 2023,
     },
