@@ -37,7 +37,7 @@ const CONFIG = {
       album: "Blockchain",
       duration: 133, // seconds
       audioUrl: "/songs/F_CK_TUAH_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k.mp3",
-      coverUrl: "https://picsum.photos/seed/album1/300/300",
+      coverUrl: "/covers/Fuck Tuah.png",
       lyrics: `[Verse 1]
 Blockchain
 Yeah yeah
