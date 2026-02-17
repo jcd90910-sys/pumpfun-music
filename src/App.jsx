@@ -977,7 +977,7 @@ export default function SpotifyClone() {
     return (
       <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", transition: "background 0.15s", gap: 16 }}
         onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"} onClick={() => onPlay?.()}>
-        <div style={{ fontSize: 15, color: theme.textSecondary, textAlign: "center" }}>{isActive && isPlaying ? <span style={{ color: theme.primary }}>&#9835;</span> : index + 1}</div>
+        <div style={{ fontSize: 15, color: isActive ? theme.primary : theme.textSecondary, textAlign: "center" }}>{isActive && isPlaying ? "\u266B" : index + 1}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
           {showCover && <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />}
           <div style={{ minWidth: 0 }}>
@@ -1024,7 +1024,8 @@ export default function SpotifyClone() {
     const recentMix = useMemo(() => CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6), []);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
+        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
             <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
@@ -1128,7 +1129,6 @@ export default function SpotifyClone() {
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 16, padding: isMobile ? "12px 16px" : "16px 24px", justifyContent: isMobile ? "center" : "flex-start" }}>
         <button style={{ width: 56, height: 56, borderRadius: "50%", background: theme.primary, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "#000" }} onClick={() => playSongFromList(artist.songs, 0)}><Icons.Play size={24} /></button>
-        <button style={{ background: "transparent", border: `1px solid ${theme.textSecondary}`, color: theme.textPrimary, padding: "6px 16px", borderRadius: 20, cursor: "pointer", fontSize: 13, fontWeight: 700 }}>Follow</button>
       </div>
       <div style={{ padding: `0 ${pad}px ${pad}px` }}>
         <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, margin: "16px 0 12px" }}>Popular</div>
@@ -1190,6 +1190,7 @@ export default function SpotifyClone() {
         <div style={{ flex: 1, overflow: "auto", background: theme.bgBase, position: "relative", paddingBottom: isMobile ? 140 : 0 }}>
           <div style={{ position: "sticky", top: 0, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: isMobile ? "8px 12px" : "12px 24px", background: `${theme.bgBase}dd`, backdropFilter: "blur(20px)", gap: 8 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flex: 1 }}>
+              {isMobile && !["search"].includes(currentView) && (<img src="/PFMUSIC.png" alt="Logo" style={{ height: 28, objectFit: "contain" }} onClick={() => { setCurrentView("home"); setViewData(null); }} />)}
               {isMobile && navHistory.length > 0 && (<button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: "transparent", color: theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={goBack}><Icons.ChevronLeft /></button>)}
               {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><Icons.ChevronLeft size={28} /></button>}
               {!isMobile && <button style={{ width: 40, height: 40, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><Icons.ChevronRight size={28} /></button>}
@@ -1220,15 +1221,37 @@ export default function SpotifyClone() {
 
         {/* QUEUE PANEL - desktop */}
         {showQueue && !isMobile && (
-          <div style={{ position: "fixed", right: 0, top: 0, bottom: 90, width: 360, background: theme.bgElevated, zIndex: 30, padding: 16, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
-              <div style={{ fontWeight: 700, fontSize: 16 }}>Queue</div>
+          <div style={{ position: "fixed", right: 0, top: 0, bottom: 90, width: 360, background: theme.bgSurface, zIndex: 30, padding: 16, overflowY: "auto", borderLeft: `1px solid ${theme.divider}` }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
+              <div style={{ fontWeight: 700, fontSize: 16, color: theme.textPrimary }}>Queue</div>
               <button style={{ background: "none", border: "none", color: theme.textSecondary, cursor: "pointer" }} onClick={() => setShowQueue(false)}><Icons.Close /></button>
             </div>
-            {currentSong && (<div style={{ marginBottom: 16 }}><div style={{ fontSize: 12, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Now Playing</div><TrackRow song={currentSong} index={0} showAlbum={false} onPlay={() => {}} /></div>)}
-            <div style={{ fontSize: 12, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Next Up</div>
-            {queue.slice(queueIndex + 1).map((song, i) => (<TrackRow key={song.id + i} song={song} index={i} showAlbum={false} onPlay={() => playSongFromList(queue, queueIndex + 1 + i)} />))}
-            {queue.length === 0 && <div style={{ color: theme.textSubdued, padding: 16 }}>Queue is empty</div>}
+            {currentSong && (<div style={{ marginBottom: 16 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Now Playing</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 4px", borderRadius: 4, background: theme.bgHighlight }}>
+                <img src={currentSong.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 600, fontSize: 14, color: theme.primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
+                  <div style={{ fontSize: 12, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.artist}</div>
+                </div>
+                <span style={{ color: theme.textSubdued, fontSize: 12, flexShrink: 0, paddingRight: 8 }}>{formatTime(currentSong.duration)}</span>
+              </div>
+            </div>)}
+            <div style={{ fontSize: 11, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Next Up</div>
+            {queue.slice(queueIndex + 1).map((song, i) => (
+              <div key={song.id + i} style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 4px", borderRadius: 4, cursor: "pointer" }}
+                onClick={() => playSongFromList(queue, queueIndex + 1 + i)}
+                onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}>
+                <span style={{ color: theme.textSubdued, fontSize: 13, width: 24, textAlign: "center", flexShrink: 0 }}>{i + 1}</span>
+                <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 600, fontSize: 14, color: theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.title}</div>
+                  <div style={{ fontSize: 12, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.artist}</div>
+                </div>
+                <span style={{ color: theme.textSubdued, fontSize: 12, flexShrink: 0, paddingRight: 8 }}>{formatTime(song.duration)}</span>
+              </div>
+            ))}
+            {queue.length <= queueIndex + 1 && <div style={{ color: theme.textSubdued, padding: 16, textAlign: "center" }}>Queue is empty</div>}
           </div>
         )}
       </div>
@@ -1252,7 +1275,26 @@ export default function SpotifyClone() {
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", marginTop: 4 }}>
             <span ref={dpTime} style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36, textAlign: "right" }}>0:00</span>
-            <div style={{ flex: 1, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative" }} onClick={seekTo}>
+            <div style={{ flex: 1, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative" }}
+              onClick={seekTo}
+              onMouseDown={(e) => {
+                const bar = e.currentTarget;
+                const move = (ev) => {
+                  const rect = bar.getBoundingClientRect();
+                  const ratio = Math.max(0, Math.min(1, (ev.clientX - rect.left) / rect.width));
+                  const dur = currentSong?.duration || durationRef.current;
+                  progressRef.current = ratio * dur;
+                  tick(progressRef.current, dur);
+                };
+                const up = () => {
+                  if (audioRef.current && audioRef.current.src) audioRef.current.currentTime = progressRef.current;
+                  document.removeEventListener("mousemove", move);
+                  document.removeEventListener("mouseup", up);
+                };
+                move(e.nativeEvent);
+                document.addEventListener("mousemove", move);
+                document.addEventListener("mouseup", up);
+              }}>
               <div ref={dpFill} style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: "0%", position: "relative" }}><div style={{ position: "absolute", right: -7, top: -5, width: 14, height: 14, borderRadius: "50%", background: theme.textPrimary }} /></div>
             </div>
             <span ref={dpEnd} style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36 }}>{currentSong ? formatTime(currentSong.duration) : "0:00"}</span>
@@ -1326,11 +1368,31 @@ export default function SpotifyClone() {
                 <span style={{ cursor: "pointer", color: liked[currentSong.id] ? theme.primary : theme.textSecondary, flexShrink: 0, marginLeft: 12 }}
                   onClick={() => setLiked((l) => ({ ...l, [currentSong.id]: !l[currentSong.id] }))}><Icons.Heart filled={liked[currentSong.id]} /></span>
               </div>
-              {/* Progress bar */}
+              {/* Draggable progress bar */}
               <div>
-                <div style={{ height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer" }} onClick={seekTo}>
-                  <div ref={npFill} style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: "0%", position: "relative" }}>
-                    <div style={{ position: "absolute", right: -6, top: -4, width: 12, height: 12, borderRadius: "50%", background: theme.textPrimary }} />
+                <div style={{ height: 6, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative", touchAction: "none" }}
+                  onClick={seekTo}
+                  onTouchStart={(e) => {
+                    const bar = e.currentTarget;
+                    const move = (ev) => {
+                      const rect = bar.getBoundingClientRect();
+                      const x = ev.touches[0].clientX;
+                      const ratio = Math.max(0, Math.min(1, (x - rect.left) / rect.width));
+                      const dur = currentSong.duration || durationRef.current;
+                      progressRef.current = ratio * dur;
+                      tick(progressRef.current, dur);
+                    };
+                    const end = () => {
+                      if (audioRef.current && audioRef.current.src) audioRef.current.currentTime = progressRef.current;
+                      document.removeEventListener("touchmove", move);
+                      document.removeEventListener("touchend", end);
+                    };
+                    move(e.nativeEvent);
+                    document.addEventListener("touchmove", move, { passive: true });
+                    document.addEventListener("touchend", end);
+                  }}>
+                  <div ref={npFill} style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: "0%", position: "relative", transition: "none" }}>
+                    <div style={{ position: "absolute", right: -8, top: -5, width: 16, height: 16, borderRadius: "50%", background: theme.textPrimary }} />
                   </div>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: 6 }}>
@@ -1338,15 +1400,15 @@ export default function SpotifyClone() {
                   <span style={{ fontSize: 11, color: theme.textSubdued }}>{formatTime(currentSong.duration)}</span>
                 </div>
               </div>
-              {/* Controls */}
+              {/* Controls - use WHITE for inactive buttons so they stay visible on any background */}
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 8px 0" }}>
-                <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
-                <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
+                <button style={{ background: "none", border: "none", color: shuffleOn ? theme.primary : "#fff", cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
+                <button style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(1.2)" }} onClick={playPrev}><Icons.SkipPrev size={28} /></button>
                 <button style={{ width: 64, height: 64, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>
                   {isPlaying ? <Icons.Pause size={28} /> : <Icons.Play size={28} />}
                 </button>
-                <button style={{ ...pb(false), transform: "scale(1.2)" }} onClick={playNext}><Icons.SkipNext size={28} /></button>
-                <button style={pb(repeatMode > 0)} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat /></button>
+                <button style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center", transform: "scale(1.2)" }} onClick={playNext}><Icons.SkipNext size={28} /></button>
+                <button style={{ background: "none", border: "none", color: repeatMode > 0 ? theme.primary : "#fff", cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat /></button>
               </div>
             </div>
           ) : (
