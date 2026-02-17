@@ -48,6 +48,7 @@ If I see her, imma smack the fuck out of her bruh
 On bro
 
 [Chorus]
+(Gra) (yeah, yeah)
 I'm a crypto trader
 Money spend 500 bands on my haters
 Reach all time highs
@@ -125,24 +126,37 @@ Pull up, black masked up, get strapped.`,
       audioUrl: "/songs/homeless.mp3",
       coverUrl: "https://picsum.photos/seed/album2/300/300",
       lyrics: `[Verse 1]
-Sitting by the shore at dawn
-Watching as the night moves on
-Waves are crashing, soft and low
-Letting all my worries go
+You just got scammed by a bunch of homeless niggas
+Suck some dick til your lips are puffed up like you got fillers
+We just rug pulled your ass for 100 SOL
+A new way of panhandling, you just paid the toll
+
+We don't got no home
+So we don't pay no rent
+We just want these drugs, alcohol, and snort all the fent
+Rug pull money got me feelin that euphoria
+Trade Solana for these percs, I feel so delirious
+
+Tap into my Pump.Fun coin if you are curious
+Study how we rugged it if you are studious
+The way my Phantom Wallet bussin, i'm gonna bust
+Just let us extract your solana please do not fuss
+
+[Verse 2]
+Now that I have a hundred bands in my pants
+Im gonna finish up with this rant, you got scammed
+Moral of the story do not trust anyone
+Not even a homeless man because he's gonna chant-
 
 [Chorus]
-Ocean waves carry me home
-Through the tides I'll never be alone
-Salt and sand between my toes
-Where the ocean takes me, nobody knows
-
-[Bridge]
-The horizon calls my name
-Nothing here will stay the same
-But in this moment, I am free
-The ocean lives inside of me`,
-      genre: "Indie",
-      year: 2024,
+Get rugged nigga
+Get rugged nigga
+You broke ass bitch get rugged nigga
+Get rugged nigga
+Get rugged nigga
+You broke ass bitch get rugged nigga`,
+      genre: "Rap",
+      year: 2026,
     },
     {
       id: "3",
