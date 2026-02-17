@@ -39,30 +39,82 @@ const CONFIG = {
       audioUrl: "/songs/F_CK_TUAH_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k.mp3",
       coverUrl: "https://picsum.photos/seed/album1/300/300",
       lyrics: `[Verse 1]
-NIGGER NIGGER NIGGER
-Everything feels so alive tonight
-The stars are dancing in my eyes
-Under these electric skies
+Blockchain
+Yeah yeah
+Bruh I'm telling you guys, bruh
+This fucking Hawk Tuah bitchass bruh
+She keeps on fucking rugging bruh
+If I see her, imma smack the fuck out of her bruh
+On bro
 
 [Chorus]
-Midnight dreams, taking me away
-Midnight dreams, I never want to fade
-Hold me close in the neon glow
-Midnight dreams, never let me go
+I'm a crypto trader
+Money spend 500 bands on my haters
+Reach all time highs
+We reaching our peaks imma see y'all later
+Moodeng to PNUT to Pengu
+Got all the SOL I can send you
+Make all my trades look easy
+Make bands like I don't intend to
+
+Blockchain records trading again
+Hit a trade we up 500 percent
+I'm with my homies, so go get yo friends
+Imma pull up in that AMG Benz
+Me and gang locked in
+Just made 100 bands, put that shit in my phantom
+This motion you cannot stop it
+No tax on crypto, no Fanum
 
 [Verse 2]
-Shadows paint the streets in gold
-Stories that have never been told
-We're running wild and running free
-This is where I want to be
+Blockchain we trading and rising
+Word to my brother, we gonna be winning
+First record as a coin, not bullshit
+All my homies gonna rise, no cap
+Degen memes don't need that
+I want a community we ain't some wack shit
+Hold up, we cannot trip
+All the haters y'all some fake big bitch
+
+Rule 1 DEV never sell
+So don't even stress cuz you gon be rich
+1 SOL. I'm a magician
+I can flip a coin into a hundred
+Fuck that, we gon get millions
+Stick with the Blockchain, we are the real ones
+Hawk Tuah that bitch my opp
+Haliey Welch yeah, you gon get popped
 
 [Chorus]
-Midnight dreams, taking me away
-Midnight dreams, I never want to fade
-Hold me close in the neon glow
-Midnight dreams, never let me go`,
-      genre: "Pop",
-      year: 2024,
+I'm a crypto trader
+Money spend 500 bands on my haters
+Reach all time highs
+We reaching our peaks imma see y'all later
+Moodeng to PNUT to Pengu
+Got all the SOL I can send you
+Make all my trades look easy
+Make bands like I don't intend to
+
+Blockchain records trading again
+Hit a trade we up 500 percent
+I'm with my homies, so go get yo friends
+Imma pull up in that AMG Benz
+Me and gang locked in
+Just made 100 bands, put that shit in my phantom
+This motion you cannot stop it
+No tax on crypto, no Fanum
+
+[Verse 3]
+Yo YungSol, who's that?
+If that's Hawk Tuah, that bitch gon get smacked
+Aye Pmoney, look back
+The feds on our ass, we can't shoot back
+On demon mode, fuck that
+Rugged my community so imma stab
+Oh word? Let's catch
+Pull up, black masked up, get strapped.`,
+      genre: "Rap",
+      year: 2025,
     },
     {
       id: "2",
