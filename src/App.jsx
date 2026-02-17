@@ -462,41 +462,150 @@ This beat just got rekt, don't you ever forget
       duration: 129,
       audioUrl: "/songs/Blockchain_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k (1).mp3",
       coverUrl: "/covers/Blockchain.png",
-      lyrics: `[Verse 1]
-Floating through the galaxy
-A billion lights surrounding me
-Made of stardust, born from light
-Traveling through the endless night
+      lyrics: `Blockchain, we about to go to the millions
+You already know
+(yeah, yeah)
 
 [Chorus]
-We are stardust, we are gold
-We are stories yet untold
-Scattered across the universe
-In every blessing, every curse`,
-      genre: "Alternative",
-      year: 2023,
+Bit gang, Alt gang, SOL gang, Chill Guy, Moodeng Pengu, Blockchain
+Woah
+Hawk Tuah a hoe she rugged man
+Solana went down but we up yeah
+Trump in office, hella bullish
+SOL going to the moon, no bullshit
+Record about to join the blockchain
+Blockchain, DEX Paid, cash game
+
+Bit gang, Alt gang, SOL gang, Chill Guy, Moodeng Pengu, Blockchain
+Woah
+Hawk Tuah a hoe she rugged man
+Solana went down but we up yeah
+Trump in office, hella bullish
+SOL going to the moon, no bullshit
+Record about to join the blockchain
+Blockchain, DEX Paid, cash game
+
+[Verse 1]
+Chill guy pays for my rent
+Moodeng pays for the Benz
+Pengu pays for the jet
+Solana yeah hold for the rest
+10K cash put in XRP
+Flex that shit on an ABG
+100x when I wake up yo
+Blockchain finna get cash yo
+
+[Verse 2]
+Blockchain we blowing up the graphs
+Make so much I put it into cash
+Whole lotta guap yeah I make it hella fast
+Blockchain to the moon with the money stack
+Memecoins up with the BTC
+Mix this track like its DVD
+Record in the news yeah CBC
+Pull up in a matte black Benz AMG
+
+[Chorus]
+Bit gang, Alt gang, SOL gang, Chill Guy, Moodeng Pengu, Blockchain
+Woah
+Hawk Tuah a hoe she rugged man
+Solana went down but we up yeah
+Trump in office, hella bullish
+SOL going to the moon, no bullshit
+Record about to join the blockchain
+Blockchain, DEX Paid, cash game
+
+Bit gang, Alt gang, SOL gang, Chill Guy, Moodeng Pengu, Blockchain
+Woah
+Hawk Tuah a hoe she rugged man
+Solana went down but we up yeah
+Trump in office, hella bullish
+SOL going to the moon, no bullshit
+Record about to join the blockchain
+Blockchain, DEX Paid, cash game`,
+      genre: "Rap",
+      year: 2025,
     },
     {
       id: "8",
-      title: "Downtown Funk",
-      artist: "Groove Machine",
-      album: "City Beats",
-      duration: 221,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album8/300/300",
+      title: "Blockchain Freestyle",
+      artist: "Pmoney Glitxh & YungSol",
+      album: "Blockchain",
+      duration: 149,
+      audioUrl: "/songs/Blockchain_Freestyle_-_Pmoney_Glitxh_&_YungSol_(Official_Video)_128k.mp3",
+      coverUrl: "/covers/5b5b3018-37ab-45d8-b5a7-7506268da095.png",
       lyrics: `[Verse 1]
-Bass is pumping through the floor
-Everybody's wanting more
-DJ spinning, crowd is jumping
-Hearts are racing, blood is pumping
+What you say YungSol 
+Think blockchain gon blow up 
+And be new Yeat
+Shiesty on our face masked up 
+But no crime or messed up court to beat
+I got new badman Phantom 
+3 digits starting with 223
+On my bro I'm Pmoney Phantom blowing up like its brand new cheat 
 
-[Chorus]
-Downtown funk, feel the beat
-Downtown funk, move your feet
-The rhythm's got us in a trance
-Downtown funk, let's dance`,
-      genre: "Funk",
-      year: 2024,
+Okay how many bands
+Yo shawty I'm tryna dance
+Sliding New York City feel like I'm OG
+Rich and shit walking Wolf of Wall Street
+
+Visa card, can't leave no trace 
+New Phantom bands in my Coinbase
+My friends and fans, and blood my race
+Outside I'm from thoughts dont erase
+
+Yea said I'm rocking 223
+Blockchain community, we gon eat
+Count the stars, that's where I'll be
+No 9-5 yeah school won't teach
+This lifestyle, yeah you can't reach
+Huh
+Yeah hold up, yeah like
+
+[Verse 2]
+Yo
+I just copped some coins 
+Black M4 new toy
+4 days new plane no playin
+My polo sweatshirt corduroy
+
+Used to be a yute that rocked a pair of Walmart shoes of my feet
+Came from the streets to the villas, now all my broskis eat
+Bundled memecoins that's bait
+Ain't nobody falling for that
+Made bands we visiting New York State 
+Got the fakes switching up like rats
+
+Made what you make in a year 
+My income statement from last month
+We just getting started too my bros know that were far from done
+I just wanna feed the bros 
+I just wanna help out the fam
+That's difference between you and me and why I'm the way that I am
+
+Anyone could do this shit just not like me
+If you grind you can be this rich but not like me
+Gave my all like Kylian Mbappé
+But you know that things went Messi
+
+Now my win rate ten for ten
+There's no more need for stressin
+Every time I see a green candles
+I get aroused that shit too sexy
+Keep all my earnings liquid safe
+Coinbase no need for flexing
+
+Slow motion better than none
+If you saw my Phantom you'd be stunned
+Making Solana on trades
+Our new definition of fun
+
+Pmoney Glitxh to my side 
+Ape in a Pumpfun coin I might
+We never gonna panic sell that's pussy
+I let that shit ride`,
+      genre: "Rap",
+      year: 2025,
     },
     {
       id: "9",
