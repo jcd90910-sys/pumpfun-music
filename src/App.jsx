@@ -381,12 +381,12 @@ Gotta cash out, I ain't doin' no credit`,
     },
     {
       id: "6",
-      title: "Wildfire",
-      artist: "Blaze",
-      album: "Ashes & Gold",
-      duration: 203,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album6/300/300",
+      title: "0-100",
+      artist: "Lil Bubble",
+      album: "Crypto Bubble",
+      duration: 135,
+      audioUrl: "/songs/1771324235457772.m4a",
+      coverUrl: "/covers/Screenshot 2026-02-17 at 1.10.12 AM.png",
       lyrics: `[Verse 1]
 Spark ignites, the flames grow higher
 Burning brighter with desire
