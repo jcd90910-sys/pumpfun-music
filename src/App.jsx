@@ -14,7 +14,7 @@ const CONFIG = {
   // ---- THEME COLORS (change these to restyle the entire app) ----
   theme: {
     primary: "#1DB954",       // Main accent (Spotify green)
-    primaryHover: "#1ed760",  // Accent hover
+    primaryHover: "#1fdd62",  // Accent hover
     bgBase: "#00b853",        // Main background
     bgSurface: "#00b853",     // Card/surface background
     bgElevated: "#000000",    // Elevated surface (player bar, modals)
@@ -706,7 +706,7 @@ export default function SpotifyClone() {
     const recentMix = CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "ass morning" : new Date().getHours() < 18 ? "ahh afternoon" : "evening trencher"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => {
             const [h, setH] = useState(false);
@@ -873,8 +873,8 @@ export default function SpotifyClone() {
           <div style={{ position: "sticky", top: 0, zIndex: 10, display: "flex", alignItems: "center", justifyContent: "space-between", padding: isMobile ? "8px 12px" : "12px 24px", background: `${theme.bgBase}dd`, backdropFilter: "blur(20px)", gap: 8 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flex: 1 }}>
               {isMobile && navHistory.length > 0 && (<button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: "transparent", color: theme.textPrimary, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={goBack}><Icons.ChevronLeft /></button>)}
-              {!isMobile && <button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navHistory.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><Icons.ChevronLeft /></button>}
-              {!isMobile && <button style={{ width: 32, height: 32, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navFuture.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><Icons.ChevronRight /></button>}
+              {!isMobile && <button style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navHistory.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navHistory.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navHistory.length === 0 ? 0.5 : 1 }} onClick={goBack}><Icons.ChevronLeft /></button>}
+              {!isMobile && <button style={{ width: 36, height: 36, borderRadius: "50%", border: "none", background: theme.bgElevated, color: navFuture.length === 0 ? theme.textSubdued : theme.textPrimary, cursor: navFuture.length === 0 ? "default" : "pointer", display: "flex", alignItems: "center", justifyContent: "center", opacity: navFuture.length === 0 ? 0.5 : 1 }} onClick={goForward}><Icons.ChevronRight /></button>}
               {currentView === "search" && (
                 <div style={{ display: "flex", alignItems: "center", background: theme.bgElevated, borderRadius: 24, padding: "8px 16px", gap: 8, flex: 1, maxWidth: isMobile ? "100%" : 480 }}>
                   <Icons.Search size={18} />
@@ -925,25 +925,25 @@ export default function SpotifyClone() {
           </>) : <div style={{ color: theme.textSubdued, fontSize: 14 }}>No song playing</div>}
         </div>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", flex: 1, maxWidth: 600 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-            <button style={pb(shuffleOn)} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
-            <button style={pb(false)} onClick={playPrev}><Icons.SkipPrev /></button>
-            <button style={{ width: 36, height: 36, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <Icons.Pause size={18} /> : <Icons.Play size={18} />}</button>
-            <button style={pb(false)} onClick={playNext}><Icons.SkipNext /></button>
-            <button style={pb(repeatMode > 0)} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat />{repeatMode === 2 && <span style={{ fontSize: 9, position: "absolute", marginTop: 14, fontWeight: 700 }}>1</span>}</button>
+          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+            <button style={{...pb(shuffleOn), padding: 6}} onClick={() => setShuffle(!shuffleOn)}><Icons.Shuffle /></button>
+            <button style={{...pb(false), padding: 6}} onClick={playPrev}><Icons.SkipPrev size={22} /></button>
+            <button style={{ width: 40, height: 40, borderRadius: "50%", background: theme.textPrimary, border: "none", color: theme.bgBase, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }} onClick={togglePlay}>{isPlaying ? <Icons.Pause size={20} /> : <Icons.Play size={20} />}</button>
+            <button style={{...pb(false), padding: 6}} onClick={playNext}><Icons.SkipNext size={22} /></button>
+            <button style={{...pb(repeatMode > 0), padding: 6, position: "relative"}} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat />{repeatMode === 2 && <span style={{ fontSize: 9, position: "absolute", bottom: -2, right: -2, fontWeight: 700 }}>1</span>}</button>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", marginTop: 4 }}>
             <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36, textAlign: "right" }}>{formatTime(progress)}</span>
-            <div ref={progressBarRef} style={{ flex: 1, height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer", position: "relative" }} onClick={seekTo}>
-              <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: `${progressPct}%`, position: "relative" }}><div style={{ position: "absolute", right: -6, top: -4, width: 12, height: 12, borderRadius: "50%", background: theme.textPrimary }} /></div>
+            <div ref={progressBarRef} style={{ flex: 1, height: 5, background: theme.bgHighlight, borderRadius: 3, cursor: "pointer", position: "relative" }} onClick={seekTo}>
+              <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 3, width: `${progressPct}%`, position: "relative" }}><div style={{ position: "absolute", right: -7, top: -5, width: 14, height: 14, borderRadius: "50%", background: theme.textPrimary }} /></div>
             </div>
             <span style={{ fontSize: 11, color: theme.textSubdued, minWidth: 36 }}>{formatTime(currentSong?.duration || duration)}</span>
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, flex: 1, justifyContent: "flex-end" }}>
-          <button style={pb(showLyrics)} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><Icons.Lyrics /></button>
-          <button style={pb(showQueue)} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><Icons.Queue /></button>
-          <button style={pb(false)} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <Icons.VolumeMute /> : <Icons.Volume />}</button>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1, justifyContent: "flex-end" }}>
+          <button style={{...pb(showLyrics), padding: 6}} onClick={() => { setShowLyrics(!showLyrics); setShowQueue(false); }}><Icons.Lyrics /></button>
+          <button style={{...pb(showQueue), padding: 6}} onClick={() => { setShowQueue(!showQueue); setShowLyrics(false); }}><Icons.Queue /></button>
+          <button style={{...pb(false), padding: 6}} onClick={() => setIsMuted(!isMuted)}>{isMuted || volume === 0 ? <Icons.VolumeMute /> : <Icons.Volume />}</button>
           <div style={{ width: 100, height: 4, background: theme.bgHighlight, borderRadius: 2, cursor: "pointer" }} onClick={(e) => { const r = e.currentTarget.getBoundingClientRect(); setVolume(Math.round(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * 100)); setIsMuted(false); }}>
             <div style={{ height: "100%", background: theme.textPrimary, borderRadius: 2, width: `${isMuted ? 0 : volume}%` }} />
           </div>
