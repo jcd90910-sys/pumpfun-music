@@ -595,6 +595,7 @@ export default function SpotifyClone() {
   const [showLyrics, setShowLyrics] = useState(false);
   const [showQueue, setShowQueue] = useState(false);
   const [showNowPlaying, setShowNowPlaying] = useState(false);
+  const [mobileLyrics, setMobileLyrics] = useState(false);
   const [sidebarCollapsed] = useState(false);
   const [navHistory, setNavHistory] = useState([]);
   const [navFuture, setNavFuture] = useState([]);
@@ -691,28 +692,22 @@ export default function SpotifyClone() {
   // ---- COMPONENTS ----
 
   const Card = ({ title, subtitle, imgUrl, onClick, isRound }) => {
-    const [hovered, setHovered] = useState(false);
     return (
-      <div style={{ background: hovered ? theme.bgHighlight : theme.bgSurface, borderRadius: 8, padding: isMobile ? 10 : 16, cursor: "pointer", transition: "background 0.2s", position: "relative" }}
-        onClick={onClick} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+      <div style={{ background: theme.bgSurface, borderRadius: 8, padding: isMobile ? 10 : 16, cursor: "pointer", transition: "background 0.2s", position: "relative" }}
+        onClick={onClick} onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = theme.bgSurface}>
         <img src={imgUrl || "https://picsum.photos/seed/default/300/300"} alt={title} style={{ width: "100%", aspectRatio: "1", objectFit: "cover", borderRadius: isRound ? "50%" : 6, marginBottom: isMobile ? 8 : 12, boxShadow: "0 8px 24px rgba(0,0,0,.5)" }} />
         <div style={{ fontWeight: 700, fontSize: isMobile ? 13 : 15, color: theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</div>
         <div style={{ fontSize: isMobile ? 11 : 13, color: theme.textSecondary, marginTop: 4, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{subtitle}</div>
-        {hovered && !isMobile && (
-          <div style={{ position: "absolute", right: 16, bottom: 84, width: 48, height: 48, borderRadius: "50%", background: theme.primary, border: "none", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 16px rgba(0,0,0,.3)", color: "#000", transform: "translateY(-4px)" }}
-            onClick={(e) => { e.stopPropagation(); onClick(); }}><Icons.Play size={22} /></div>
-        )}
       </div>
     );
   };
 
   const TrackRow = ({ song, index, showAlbum = true, showCover = true, onPlay }) => {
-    const [hovered, setHovered] = useState(false);
     const isActive = currentSong?.id === song.id;
     if (isMobile) {
       return (
-        <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 4px", cursor: "pointer", background: hovered ? theme.bgHighlight : "transparent", borderRadius: 4 }}
-          onClick={() => onPlay?.()} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 4px", cursor: "pointer", borderRadius: 4 }}
+          onClick={() => onPlay?.()} onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}>
           {showCover && <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />}
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontWeight: 600, color: isActive ? theme.primary : theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: 14 }}>{song.title}</div>
@@ -723,10 +718,10 @@ export default function SpotifyClone() {
       );
     }
     return (
-      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", color: isActive ? theme.primary : theme.textPrimary, transition: "background 0.15s", gap: 16, background: hovered ? theme.bgHighlight : "transparent" }}
-        onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={() => onPlay?.()}>
+      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", color: isActive ? theme.primary : theme.textPrimary, transition: "background 0.15s", gap: 16 }}
+        onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"} onClick={() => onPlay?.()}>
         <div style={{ fontSize: 15, color: theme.textSecondary, textAlign: "center", width: 40 }}>
-          {hovered ? <span style={{ color: theme.textPrimary }}><Icons.Play size={14} /></span> : isActive && isPlaying ? <span style={{ color: theme.primary }}>&#9835;</span> : index + 1}
+          {isActive && isPlaying ? <span style={{ color: theme.primary }}>&#9835;</span> : index + 1}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
           {showCover && <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />}
@@ -737,8 +732,6 @@ export default function SpotifyClone() {
         </div>
         <div style={{ fontSize: 14, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", cursor: "pointer" }} onClick={(e) => { e.stopPropagation(); navigate("album", { name: song.album }); }}>{showAlbum ? song.album : ""}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: "flex-end" }}>
-          <span style={{ cursor: "pointer", opacity: liked[song.id] ? 1 : (hovered ? 0.7 : 0), transition: "opacity 0.15s", color: liked[song.id] ? theme.primary : theme.textSecondary }}
-            onClick={(e) => { e.stopPropagation(); setLiked((l) => ({ ...l, [song.id]: !l[song.id] })); }}><Icons.Heart filled={liked[song.id]} /></span>
           <span style={{ color: theme.textSecondary, fontSize: 14 }}>{formatTime(song.duration)}</span>
         </div>
       </div>
@@ -755,15 +748,14 @@ export default function SpotifyClone() {
   // ---- MOBILE: Full-screen Now Playing ----
   const MobileNowPlaying = () => {
     if (!currentSong) return null;
-    const [mLyrics, setMLyrics] = useState(false);
     return (
       <div style={{ position: "fixed", inset: 0, zIndex: 50, background: theme.bgBase, display: "flex", flexDirection: "column", padding: "16px 24px", overflow: "auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
-          <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => setShowNowPlaying(false)}><Icons.ChevronDown /></button>
+          <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => { setShowNowPlaying(false); setMobileLyrics(false); }}><Icons.ChevronDown /></button>
           <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: theme.textSecondary }}>Now Playing</div>
-          <button style={{ background: "none", border: "none", color: mLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => setMLyrics(!mLyrics)}><Icons.Lyrics /></button>
+          <button style={{ background: "none", border: "none", color: mobileLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => setMobileLyrics(!mobileLyrics)}><Icons.Lyrics /></button>
         </div>
-        {!mLyrics ? (<>
+        {!mobileLyrics ? (<>
           <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: "0 8px" }}>
             <img src={currentSong.coverUrl} alt="" style={{ width: "100%", maxWidth: 340, aspectRatio: "1", borderRadius: 8, objectFit: "cover", boxShadow: "0 8px 40px rgba(0,0,0,.6)" }} />
           </div>
@@ -876,15 +868,13 @@ export default function SpotifyClone() {
     const recentMix = CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning trencher" : new Date().getHours() < 18 ? "ass afternoon trencher" : "evening trencher"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 16px" }}>Good {new Date().getHours() < 12 ? "morning trencher" : new Date().getHours() < 18 ? "afternoon trencher" : "evening trencher"}</h2>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => {
-            const [h, setH] = useState(false);
-            return (<div key={song.id} style={{ display: "flex", alignItems: "center", background: h ? theme.bgHighlight : `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64, position: "relative" }}
-              onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)} onClick={() => playSongFromList(CONFIG.songs, CONFIG.songs.indexOf(song))}>
+            return (<div key={song.id} className="quick-pick" style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64, position: "relative" }}
+              onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = `${theme.bgElevated}88`} onClick={() => playSongFromList(CONFIG.songs, CONFIG.songs.indexOf(song))}>
               <img src={song.coverUrl} alt="" style={{ width: isMobile ? 48 : 64, height: isMobile ? 48 : 64, objectFit: "cover" }} />
               <span style={{ padding: isMobile ? "0 8px" : "0 16px", fontWeight: 700, fontSize: isMobile ? 11 : 14, flex: 1, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.title}</span>
-              {h && !isMobile && (<div style={{ position: "absolute", right: 12, width: 36, height: 36, borderRadius: "50%", background: theme.primary, display: "flex", alignItems: "center", justifyContent: "center", color: "#000" }}><Icons.Play size={16} /></div>)}
             </div>);
           })}
         </div>
