@@ -386,7 +386,7 @@ Gotta cash out, I ain't doin' no credit`,
       album: "Crypto Bubble",
       duration: 135,
       audioUrl: "/songs/1771324235457772.m4a",
-      coverUrl: "/covers/Screenshot 2026-02-17 at 1.10.12 AM.png",
+      coverUrl: "/covers/Screenshot 2026-02-17 at 1.10.12 AM.png",
       lyrics: `(Yeah)
 It's Lil Bubble
 Boutta hit them with the freestyle real quick
