@@ -8,7 +8,7 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 const CONFIG = {
   // ---- YOUR BRAND ----
   appName: "$PFMUSIC",
-  logoUrl: "", // Put your logo URL here, e.g. "PFMUSIC.png"
+  logoUrl: "", // Put your logo URL here, e.g. "public/PFMUSIC.png"
   logoText: "$PFMUSIC", // Shown if no logo image
 
   // ---- THEME COLORS (change these to restyle the entire app) ----
@@ -456,12 +456,12 @@ This beat just got rekt, don't you ever forget
     },
     {
       id: "7",
-      title: "Stardust",
-      artist: "Cosmos",
-      album: "Nebula",
-      duration: 276,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album7/300/300",
+      title: "Da Blockchain",
+      artist: "Pmoney Glitxh & YungSol",
+      album: "Blockchain",
+      duration: 129,
+      audioUrl: "/songs/Blockchain_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k (1).mp3",
+      coverUrl: "/covers/Blockchain.png",
       lyrics: `[Verse 1]
 Floating through the galaxy
 A billion lights surrounding me
