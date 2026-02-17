@@ -165,7 +165,7 @@ You broke ass bitch get rugged nigga`,
       album: "Crypto Bubble",
       duration: 146,
       audioUrl: "/songs/Congratulations_(Post_Malone_Bitcoin_Parody)_BTC_All_Time_High_🚀_128k.mp3",
-      coverUrl: "https://picsum.photos/seed/album3/300/300",
+      coverUrl: "/covers/cryptolations.png",
       lyrics: `[Chorus]
 My mama called
 Seen you on Twitter son
