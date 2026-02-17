@@ -1025,7 +1025,7 @@ export default function SpotifyClone() {
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
         <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
-        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU</div>
+        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: testestestest</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
             <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
