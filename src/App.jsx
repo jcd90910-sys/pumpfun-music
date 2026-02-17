@@ -229,30 +229,82 @@ Yeah, we were patient
 Now we can scream that we made it
 And everywhere everywhere we go they say “gratulations”
 Ooh, yeah`,
-      genre: "Electronic",
-      year: 2023,
+      genre: "Alternative R&B",
+      year: 2020,
     },
     {
       id: "4",
-      title: "Sunset Boulevard",
-      artist: "Luna Echo",
-      album: "Golden Hour",
-      duration: 232,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album4/300/300",
-      lyrics: `[Verse 1]
-Driving down the palm-lined street
-Golden light and summer heat
-Radio playing our favorite song
-Windows down, we sing along
+      title: "Tennessee Trader",
+      artist: "Morgan Pumpen",
+      album: "Single",
+      duration: 155,
+      audioUrl: "/songs/Pump_Fun_Junkies_-_Tennessee_Trader_-_Lyric_Video_128k.mp3",
+      coverUrl: "/covers/tennessee.png",
+      lyrics: `(Oooo oo oo ooh)
+(Oooo oo oo ooh)
+(yeah)
+
+[Verse 1]
+Pumpfun's a storm
+Pulling me near
+Tennessee Trader
+Diving in here
+Stumbled on Pump.Fun
+Late in the night
+Coins flashing wild
+Chaos in sight
+
+New names every tick
+a degen's parade
+Pumps hit the sky
+Then dump to the grave
+Screens burn my eyes
+Like a river's roar
+Awe turns to hunger
+I'm craving more
 
 [Chorus]
-Sunset Boulevard, dreams in every lane
-Sunset Boulevard, dancing in the rain
-Colors paint the sky above
-Sunset Boulevard, falling back in love`,
-      genre: "Pop",
-      year: 2024,
+Pumpfun Junkies, riding the high
+Aping hard, watch the profits fly
+This turd's in the mud, but I won't quit
+Tennessee Soul, addicted to the hit
+
+[Verse 2]
+Aped into DOGE
+With a whiskey grin
+Floki spiked fast
+Then rug pulled my grin
+MCMT's a tease
+Jeets bold with the cash
+So I ape back in
+Got me chasing it fast
+
+Coins flash and fade
+Like a trader's sin
+Rug pulled my boots
+But I'm back again
+
+[Chorus]
+Pumpfun Junkies, riding the high
+Aping hard, watch the profits fly
+This turd's in the mud, but I won't quit
+Tennessee Soul
+And I'm addicted to this shit
+
+[Verse 3]
+Gas fees bite
+But my bloods on fire
+Chaos is my preacher
+Lifiting me higher
+Realized too late
+I'm a junkie now
+Pumpfun's my gospel
+Guess I'm taking these vows
+
+Pumpfun junkies done lost our minds
+Tennessee Trader deep in the grind`,
+      genre: "Country",
+      year: 2026,
     },
     {
       id: "5",
