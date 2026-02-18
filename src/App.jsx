@@ -609,8 +609,8 @@ I let that shit ride`,
     },
     {
       id: "9",
-      title: "Bitcoin Album",
-      artist: "Summit",
+      title: "Bitcoin Anthem",
+      artist: "WOW Exchange",
       album: "Single",
       duration: 158,
       audioUrl: "/songs/Bitcoin_Anthem_(Crypto_Song)_[Solana]_128k.mp3",
@@ -678,39 +678,80 @@ Solananana
 One exchange, one global way
 Trade smart, earn more a better way
 Solalalalala`,
-      genre: "Folk",
-      year: 2023,
+      genre: "Pop",
+      year: 2026,
     },
     {
       id: "10",
-      title: "Neon Lights",
-      artist: "Volt",
-      album: "Neon Horizons",
-      duration: 195,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album10/300/300",
-      lyrics: `[Verse 1]
-City glows in purple haze
-Lost inside this neon maze
-Every sign tells a different tale
-Riding on the midnight rail
+      title: "All The Bears Are Dead",
+      artist: "Lil Bubble",
+      album: "Crypto Bubble",
+      duration: 119,
+      audioUrl: "/songs/Lil_Bubble_-_All_The_Bears_Are_Dead_(Bitcoin_50k_Edition_-_Lil_Uzi_Vert)_128k.mp3",
+      coverUrl: "/covers/0bd0f57b-c14d-4d63-9804-c7816de38fa8.png",
+      lyrics: `[Chorus]
+I don't really care if you cry
+Honestly you should've never tried
+Should've saw the way it pumped into the sky
+He said “Bubble I am still afraid to, buy”
+Push em to the edge
+All the bears are dead
+Push em to the edge
+All the bears are dead
+Push em to the edge
+All the bears are dead
+Push em to the edge
+
+[Verse 1]
+Candles were all red
+Now they all green
+Like the prettiest forest that your eyes have ever seen
+Shorters got mad
+Squeezed em like a pimple now
+Stops turned into fuel now
+Watch they way it moons now
+
+[Verse 2]
+Riding my longs all the way to the top
+Closing when it's falling over
+But I keep holding my bag of spot
+Revvin up like my Lambo motor
+They said it's bubble yeah
+So I made it my name
+Ledger gave us trouble so I ripped that shit off my chain
+
+They mad they didn't buy a year ago
+I was telling everyone I knew
+They didn't hear me though
+We been through the worst days
+Man you should've seen the lows
+Now I wake up see another high we never seen before
+(yeah)
 
 [Chorus]
-Neon lights guide me through the dark
-Neon lights, every one a spark
-In this electric wonderland
-Neon lights, take my hand`,
-      genre: "Electronic",
-      year: 2024,
+I don't really care if you cry
+Honestly you should've never tried
+Saw the way it pumped into the sky
+He said “Bubble I am still afraid to, buy”
+Push em to the edge
+All the bears are dead
+Push em to the edge
+(yeah, ooh)
+
+Push em to the edge
+All the bears are dead now
+All the bears are dead now`,
+      genre: "Rap",
+      year: 2021,
     },
     {
       id: "11",
-      title: "Autumn Leaves",
-      artist: "Mellow Keys",
-      album: "Quiet Corners",
-      duration: 204,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album11/300/300",
+      title: "Never Ever Selling",
+      artist: "Lil Bubble",
+      album: "Crypto Bubble",
+      duration: 130,
+      audioUrl: "public/songs/Lil_Bubble_-_Never_Ever_(selling_back_to_tether)_128k.mp3",
+      coverUrl: "/covers/91123e50-45c9-4926-ac10-46f7b5ee9f6a.png",
       lyrics: `[Verse 1]
 Amber, crimson, gold and brown
 Gently drifting to the ground
