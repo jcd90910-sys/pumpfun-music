@@ -913,12 +913,12 @@ So I vote for Trump yeah`,
 
   // ---- YOUR PLAYLISTS ----
   playlists: [
-    { id: "pl1", name: "Chill Vibes", description: "Relax and unwind", songIds: ["5", "11", "2", "9"], coverUrl: "https://picsum.photos/seed/playlist1/300/300" },
-    { id: "pl2", name: "Workout Energy", description: "Power through your session", songIds: ["6", "8", "3", "10", "12"], coverUrl: "https://picsum.photos/seed/playlist2/300/300" },
-    { id: "pl3", name: "Late Night Drive", description: "For midnight cruises", songIds: ["1", "4", "10", "12", "7"], coverUrl: "https://picsum.photos/seed/playlist3/300/300" },
-    { id: "pl4", name: "Focus Flow", description: "Concentrate and create", songIds: ["5", "7", "9", "11", "2"], coverUrl: "https://picsum.photos/seed/playlist4/300/300" },
-    { id: "pl5", name: "Party Mix", description: "Turn it up!", songIds: ["8", "3", "6", "1", "10"], coverUrl: "https://picsum.photos/seed/playlist5/300/300" },
-    { id: "pl6", name: "Acoustic Sessions", description: "Stripped down sounds", songIds: ["9", "2", "4", "11"], coverUrl: "https://picsum.photos/seed/playlist6/300/300" },
+    { id: "pl1", name: "Orangie's Playlist", description: "It's just getting started", songIds: ["5", "11", "2", "9"], coverUrl: "/covers/G-kEDY5WcAEc_li.jpeg" },
+    { id: "pl2", name: "The Duve's Favorites", description: "Pre Duve Hype Music", songIds: ["6", "8", "3", "10", "12"], coverUrl: "/covers/the duve.jpeg" },
+    { id: "pl3", name: "Pumpfun Songs", description: "Songs about Pumpfun", songIds: ["1", "4", "10", "12", "7"], coverUrl: "/covers/pump.jpg" },
+    { id: "pl4", name: "Cupsey's Music", description: "Music for dumping 10k toppers", songIds: ["5", "7", "9", "11", "2"], coverUrl: "/covers/cup.jpg" },
+    { id: "pl5", name: "Ansem", description: "Personal favs", songIds: ["8", "3", "6", "1", "10"], coverUrl: "/covers/ansem.png" },
+    { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["9", "2", "4", "11"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
   ],
 };
 
