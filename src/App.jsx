@@ -746,25 +746,71 @@ All the bears are dead now`,
     },
     {
       id: "11",
-      title: "Never Ever Selling",
+      title: "Never Ever Selling Back To Tether",
       artist: "Lil Bubble",
       album: "Crypto Bubble",
       duration: 130,
       audioUrl: "public/songs/Lil_Bubble_-_Never_Ever_(selling_back_to_tether)_128k.mp3",
       coverUrl: "/covers/91123e50-45c9-4926-ac10-46f7b5ee9f6a.png",
       lyrics: `[Verse 1]
-Amber, crimson, gold and brown
-Gently drifting to the ground
-A carpet made of memories
-Whispered by the autumn breeze
+I remember when we rode a pump the first time 
+Angry cause I didn't buy enough
+Bought it all the way up to the top
+Cause I said I needed more
+Laughing at my family and friends
+Cause they
+Kept telling me that it was a scam
+But then
+It retraced about 80 percent
+
+And I held on
+I HODL
+I sold at the bottom
 
 [Chorus]
-Autumn leaves are falling down
-Painting colors on the town
-Every leaf a story told
-Of summer's warmth before the cold`,
-      genre: "Lo-fi",
-      year: 2023,
+(ooh, ooh ooh ooh ooh)
+
+I sold the dip again last night and
+(ooh, ooh ooh ooh ooh)
+This time, I'm telling you, telling you
+
+We are never, ever, ever
+Selling back to tether
+We are never, ever, ever
+Selling back to tether
+
+We've got lots of bitcoins
+Lots of shitcoins
+Watch em bleed
+But we are never, ever, ever, ever
+Selling back to tether
+
+[Verse 2]
+I swore I'd never HODL it again
+Sold it when it hit like 7 grand
+Then I bought it back at 12 and then again at 15
+Then bought more at 18
+You might call me crazy, but
+
+[Chorus]
+(ooh, ooh ooh ooh ooh)
+
+I sold the dip again last night and
+(ooh, ooh ooh ooh ooh)
+This time, I'm telling you, telling you
+
+We are never, ever, ever
+Selling back to tether
+We are never, ever, ever
+Selling back to tether
+
+We've got lots of bitcoins
+Lots of shitcoins
+Watch em bleed
+But we are never, ever, ever, ever
+Selling back to tether`,
+      genre: "Pop",
+      year: 2020,
     },
     {
       id: "12",
