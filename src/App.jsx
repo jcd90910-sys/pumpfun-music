@@ -814,25 +814,100 @@ Selling back to tether`,
     },
     {
       id: "12",
-      title: "Thunder Road",
-      artist: "Blaze",
-      album: "Ashes & Gold",
+      title: "Donald Pump",
+      artist: "Pmoney Glitxh & YungSol",
+      album: "Blockchain",
       duration: 267,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album12/300/300",
-      lyrics: `[Verse 1]
-Engine roaring, tires screaming
-Headlights cut through midnight gleaming
-Pedal down on thunder road
-Carrying this heavy load
+      audioUrl: "/songs/Donald_Pump_-_Pmoney_Glitxh_&_YungSol_(Official_Music_Video)_128k.mp3",
+      coverUrl: "/covers/778bb29e-80ba-456e-becf-206114ceb452.png",
+      lyrics: `[Chorus]
+I vote for Trump yeah
+Red hat on my head we rich 
+Blockchain we pump yeah
+Bitcoin to the moon it rip
+I vote for Trump yeah
+Blockchain gold chain we drip 
+Blockchain we pump yeah
+2025 we up on a trip 
+I vote for Trump yeah
+We got Blockchain to the moon
+I vote for trump yeah
+I'm stacking grinding nonstop 
+So it aint no luck yeah
+Bitcoin memecoin it go up 
+Come and watch the pump yeah 
+Right hand is Elon Musk
+
+So I vote for Trump yeah
+Red hat on my head we rich  
+Blockchain we pump yeah
+Bitcoin to the moon it rip
+I vote for Trump yeah
+Blockchain gold chain we drip 
+Blockchain we pump yeah
+2025 we up on a trip 
+I vote for trump yeah
+We got blockchain to the moon 
+So I vote for Trump yeah
+I'm stacking grinding nonstop 
+So it aint no luck yeah
+Bitcoin memecoin it go up 
+So come and watch the pump yeah
+Right hand is Elon Musk
+So I vote for Trump yeah
+
+[Verse 1]
+You know Trump got us  
+Elon Musk got us
+They with the culture
+Blockchain on top yeah
+I just wanna make some bands
+I wanna stack my money so tall 
+Like a plane that can not fucking land
+
+I mean like twin 
+I mean yeah we win
+I mean like twin
+I mean yeah we win
+Bullish ass coins yeah I make a call 
+I’m like the jordan of Crypto I ball
+Bitch I dont fumble yeah I never fall
+My graph jump so high so tall
+
+[Verse 3]
+So much rich shit
+Yeah 2 0 2 5
+You know I feel so alive
+Too many solana 
+Showed my mom my phantom 
+So shock she gonna die
+Yeah we want fame shit 
+I want cash, bills, stack money
+Yeah I cant even lie
+100x we bullish
+We ain't bullshit yeah 
+Degen coins say goodbye
 
 [Chorus]
-Thunder road, take me far away
-Thunder road, I can't stay another day
-Lightning strikes behind my eyes
-Thunder road beneath these skies`,
-      genre: "Rock",
-      year: 2024,
+I vote for Trump yeah
+Red hat on my head we rich 
+Blockchain we pump yeah
+Bitcoin to the moon it rip
+I vote for Trump yeah
+Blockchain gold chain we drip 
+Blockchain we pump yeah
+2025 we up on a trip 
+I vote for Trump yeah
+We got Blockchain to the moon
+I vote for trump yeah
+I'm stacking grinding nonstop 
+So it aint no luck yeah
+Bitcoin memecoin it go up 
+Come and watch the pump yeah 
+Right hand is Elon Musk 
+So I vote for Trump yeah`,
+      genre: "Rap",
+      year: 2025,
     },
   ],
 
