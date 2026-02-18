@@ -609,23 +609,75 @@ I let that shit ride`,
     },
     {
       id: "9",
-      title: "Mountain High",
+      title: "Bitcoin Album",
       artist: "Summit",
-      album: "Altitude",
-      duration: 258,
-      audioUrl: "",
-      coverUrl: "https://picsum.photos/seed/album9/300/300",
+      album: "Single",
+      duration: 158,
+      audioUrl: "/songs/Bitcoin_Anthem_(Crypto_Song)_[Solana]_128k.mp3",
+      coverUrl: "/covers/1e70083f-55af-4fa4-8f31-ca2463171328.png",
       lyrics: `[Verse 1]
-Climbing up above the clouds
-Leaving behind the noisy crowds
-Air is thin but spirits high
-Touching the edge of the sky
+Charts blow up in the middle of the night
+Green or red, yeah we're ready for the fight
+Not just look but we move with intent
+Breathe the moment every second well spent
+From the box to the screens worldwide
+We don't guess we move with the tide
+Crypto's fast only the smart survive
+This is how the future trades alive
+
+Less noise
+More cash
+Move sharp
+Move smart
 
 [Chorus]
-Mountain high, valley low
-Everywhere the wind will blow
-Standing tall against the storm
-In these peaks I feel reborn`,
+Bitcoin is what
+Crypto is what
+Solananana hear the people say
+One exchange one global way 
+Solana what
+Crypto is what 
+Solanana hear the people say 
+Trade smart earn more a better way
+
+[Verse 2]
+Built by the people bold and brave
+(wow wow)
+The future's now
+Rug pull rug pull yeah I stay cool
+But at the top burn fast I was a fool
+Hey market maker
+Why ZooMama head sellin whips on my bags like a crypto fatality
+Shook me hard but I'm back with a plan 
+From chaos to calm watch me understand
+Eyes open never late 
+This is how we elevate
+
+[Chorus]
+Bitcoin is what
+Crypto is what
+Solananana hear the people say
+One exchange one global way 
+Solana what
+Crypto is what 
+Solanana hear the people say 
+Trade smart earn more a better way
+
+[Verse 3]
+Trading
+Building
+Earning
+Own it
+Together, we the
+
+(na na na na)
+
+Bitcoin is what
+Crypto is what
+Solananana
+One exchange, one global way
+Trade smart, earn more a better way
+Solalalalala`,
       genre: "Folk",
       year: 2023,
     },
