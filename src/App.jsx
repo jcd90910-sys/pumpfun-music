@@ -1043,6 +1043,7 @@ const Icons = {
   Plus: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>),
   Video: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm6 12l6-4-6-4v8z"/></svg>),
   Menu: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>),
+  Chart: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M3 13h2v8H3v-8zm4-3h2v11H7V10zm4-4h2v15h-2V6zm4 6h2v9h-2v-9zm4-3h2v12h-2V9z"/></svg>),
 };
 
 // ============================================================
@@ -1341,6 +1342,15 @@ export default function SpotifyClone() {
           </div>
         </div>
       ))}
+      {/* Follow on X */}
+      <div style={{ padding: `${isMobile ? 16 : 32}px ${pad}px ${isMobile ? 24 : 40}px`, textAlign: "center" }}>
+        <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: theme.bgElevated, padding: isMobile ? "12px 20px" : "14px 28px", borderRadius: 30, cursor: "pointer", transition: "opacity 0.2s" }}
+          onClick={() => window.open("https://x.com/TestingX", "_blank")}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"} onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
+          <svg viewBox="0 0 24 24" style={{width:18,height:18}} fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span style={{ fontWeight: 700, fontSize: isMobile ? 14 : 16, color: theme.textPrimary }}>Follow us on X: @TestingX</span>
+        </div>
+      </div>
     </div>);
   };
 
@@ -1499,12 +1509,26 @@ export default function SpotifyClone() {
     );
   };
 
+  const ChartView = () => {
+    const chartUrl = CONFIG.chartUrl || "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd";
+    const embedUrl = chartUrl.replace("dexscreener.com", "dexscreener.com/embed");
+    return (
+      <div style={{ padding: `0 ${pad}px ${pad}px`, height: "100%" }}>
+        <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>$PFMUSIC Chart</div>
+        <div style={{ borderRadius: 12, overflow: "hidden", background: "#000", height: isMobile ? "calc(100vh - 220px)" : "calc(100vh - 240px)" }}>
+          <iframe src={embedUrl} style={{ width: "100%", height: "100%", border: "none" }} title="DEXScreener Chart" />
+        </div>
+      </div>
+    );
+  };
+
   const renderMainContent = () => {
     switch (currentView) {
       case "home": return <HomeView />; case "search": return <SearchView />; case "library": return <LibraryView />;
       case "playlist": return <PlaylistView playlist={viewData} />; case "album": return <AlbumView album={viewData} />;
       case "artist": return <ArtistView artist={viewData} />; case "videos": return <VideosView />;
-      case "videoPlayer": return <VideoPlayerView video={viewData} />; default: return <HomeView />;
+      case "videoPlayer": return <VideoPlayerView video={viewData} />; case "chart": return <ChartView />;
+      default: return <HomeView />;
     }
   };
 
@@ -1519,7 +1543,7 @@ export default function SpotifyClone() {
             {CONFIG.logoUrl ? <img src={CONFIG.logoUrl} alt="Logo" style={{ height: 32, objectFit: "contain" }} /> : <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: -0.5 }}>{CONFIG.logoText}</div>}
           </div>
           <nav style={{ padding: "8px 12px" }}>
-            {[{ id: "home", label: "Home", Icon: Icons.Home }, { id: "search", label: "Search", Icon: Icons.Search }, { id: "videos", label: "Music Videos", Icon: Icons.Video }].map(({ id, label, Icon }) => (
+            {[{ id: "home", label: "Home", Icon: Icons.Home }, { id: "search", label: "Search", Icon: Icons.Search }, { id: "videos", label: "Music Videos", Icon: Icons.Video }, { id: "chart", label: "$PFMUSIC Chart", Icon: Icons.Chart }].map(({ id, label, Icon }) => (
               <div key={id} style={{ display: "flex", alignItems: "center", gap: 16, padding: "10px 12px", borderRadius: 8, cursor: "pointer", color: currentView === id ? theme.textPrimary : theme.textSecondary, fontWeight: currentView === id ? 700 : 600, fontSize: 15, background: currentView === id ? theme.bgHighlight : "transparent" }}
                 onClick={() => { setCurrentView(id); setViewData(null); if (id === "search") setTimeout(() => searchInputRef.current?.focus(), 100); }}><Icon /><span>{label}</span></div>
             ))}
@@ -1567,7 +1591,7 @@ export default function SpotifyClone() {
                 {mobileMenu && (<>
                   <div style={{ position: "fixed", inset: 0, zIndex: 99 }} onClick={() => setMobileMenu(false)} />
                   <div style={{ position: "absolute", top: 40, right: 0, background: theme.bgElevated, borderRadius: 12, boxShadow: "0 8px 32px rgba(0,0,0,.6)", padding: 8, zIndex: 100, minWidth: 200, border: `1px solid ${theme.divider}` }}>
-                    {[{ id: "home", label: "Home", icon: <Icons.Home size={20} /> }, { id: "search", label: "Search", icon: <Icons.Search size={20} /> }, { id: "videos", label: "Music Videos", icon: <Icons.Video size={20} /> }, { id: "library", label: "Your Library", icon: <Icons.Library size={20} /> }].map((item) => (
+                    {[{ id: "home", label: "Home", icon: <Icons.Home size={20} /> }, { id: "search", label: "Search", icon: <Icons.Search size={20} /> }, { id: "videos", label: "Music Videos", icon: <Icons.Video size={20} /> }, { id: "chart", label: "$PFMUSIC Chart", icon: <Icons.Chart size={20} /> }, { id: "library", label: "Your Library", icon: <Icons.Library size={20} /> }].map((item) => (
                       <div key={item.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 8, cursor: "pointer", color: currentView === item.id ? theme.primary : theme.textPrimary, fontWeight: currentView === item.id ? 700 : 500, fontSize: 15 }}
                         onClick={() => { setCurrentView(item.id); setViewData(null); setMobileMenu(false); }}
                         onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}>
