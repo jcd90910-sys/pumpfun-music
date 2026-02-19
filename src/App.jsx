@@ -6,9 +6,24 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 // To add your own songs, logos, colors - ONLY edit this section
 
 const CONFIG = {
+  // ---- CUSTOM ARTIST PHOTOS ----
+  // Artist name must match EXACTLY what's in your songs
+  artistCovers: {
+    "Pmoney Glitxh & YungSol": "/covers/pmoney-artist.jpg",
+    "The Homeless": "/covers/homeless-artist.jpg",
+    "Lil Bubble": "/covers/lilbubble-artist.jpg",
+    "Morgan Pumpen": "/covers/morgan-artist.jpg",
+  },
+
+  // ---- CUSTOM ALBUM COVERS ----
+  // Album name must match EXACTLY what's in your songs
+  albumCovers: {
+    "Blockchain": "/covers/blockchain-album.jpg",
+    "Crypto Hits": "/covers/crypto-hits-album.jpg",
+  },
   // ---- YOUR BRAND ----
   appName: "$PFMUSIC",
-  logoUrl: "/PFMUSIC.png", // "/public/PFMUSIC.png"
+  logoUrl: "", // "/public/PFMUSIC.png"
   logoText: "$PFMUSIC", // Shown if no logo image
 
   // ---- THEME COLORS (change these to restyle the entire app) ----
