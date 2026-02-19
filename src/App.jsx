@@ -1810,7 +1810,7 @@ export default function SpotifyClone() {
 
   const ChartView = () => {
     // DexScreener supports ?embed=1&theme=dark for iframe embedding
-    const pairAddr = CONFIG.dexscreenerPair || "2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd";
+    const pairAddr = CONFIG.dexscreenerPair || "A6KHMiFzn9AM7VKBtVP4fZNY9bCo2jP63R9dphaW1vrq";
     const chain = CONFIG.dexscreenerChain || "solana";
     const embedSrc = `https://dexscreener.com/${chain}/${pairAddr}?embed=1&theme=dark`;
     const fullUrl = `https://dexscreener.com/${chain}/${pairAddr}`;
