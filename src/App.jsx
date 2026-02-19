@@ -1623,8 +1623,8 @@ export default function SpotifyClone() {
   };
 
   const SearchView = () => {
-    const genres = ["Pop", "Rock", "Electronic", "Lo-fi", "Indie", "Alternative", "Funk", "Folk"];
-    const genreColors = ["#E13300", "#8400E7", "#1DB954", "#E8115B", "#E91429", "#148A08", "#DC148C", "#537AA2"];
+    const genres = ["Pop", "Rock", "Rap", "Lo-fi", "Indie", "Alternative", "Funk", "Folk"];
+    const genreColors = ["#E13300", "#8400E7", "#00e1ff", "#E8115B", "#E91429", "#148A08", "#DC148C", "#537AA2"];
     const hasQuery = searchQuery.trim().length > 0;
     return (<div>
       {!hasQuery && (<div style={{ padding: `0 ${pad}px ${pad}px` }}>
