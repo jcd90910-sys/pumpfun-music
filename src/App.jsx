@@ -750,7 +750,7 @@ All the bears are dead now`,
       artist: "Lil Bubble",
       album: "Crypto Bubble",
       duration: 130,
-      audioUrl: "public/songs/Lil_Bubble_-_Never_Ever_(selling_back_to_tether)_128k.mp3",
+      audioUrl: "/songs/Lil_Bubble_-_Never_Ever_(selling_back_to_tether)_128k.mp3",
       coverUrl: "/covers/91123e50-45c9-4926-ac10-46f7b5ee9f6a.png",
       lyrics: `[Verse 1]
 I remember when we rode a pump the first time 
