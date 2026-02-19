@@ -1193,11 +1193,11 @@ Pump,p-p-pump,pump it up`,
   // ---- YOUR PLAYLISTS ----
   playlists: [
     { id: "pl1", name: "Orangie's Playlist", description: "It's just getting started", songIds: ["10", "11", "6", "9"], coverUrl: "/covers/G-kEDY5WcAEc_li.jpeg" },
-    { id: "pl2", name: "The Duve's Favorites", description: "Pre Duve Hype Music", songIds: ["6", "2", "", "", ""], coverUrl: "/covers/the duve.jpeg" },
-    { id: "pl3", name: "Pumpfun Songs", description: "Songs about Pumpfun", songIds: ["1", "4", "10", "12", "7"], coverUrl: "/covers/pump.jpg" },
-    { id: "pl4", name: "Cupsey's Music", description: "Music for dumping 10k toppers", songIds: ["2", "7", "9", "11", "2"], coverUrl: "/covers/cup.jpg" },
-    { id: "pl5", name: "Ansem", description: "Personal favs", songIds: ["8", "3", "6", "1", "10"], coverUrl: "/covers/ansem.png" },
-    { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["", "2", "4", "11"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
+    { id: "pl2", name: "The Duve's Favorites", description: "Pre Duve Hype Music", songIds: ["6", "2", "15"], coverUrl: "/covers/the duve.jpeg" },
+    { id: "pl3", name: "Pumpfun Songs", description: "Songs about Pumpfun", songIds: ["16", "13", "4"], coverUrl: "/covers/pump.jpg" },
+    { id: "pl4", name: "Cupsey's Music", description: "Music for dumping 10k toppers", songIds: ["1", "2", "10", "3"], coverUrl: "/covers/cup.jpg" },
+    { id: "pl5", name: "Ansem", description: "Personal favs", songIds: ["9", "5"], coverUrl: "/covers/ansem.png" },
+    { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["2", "1", "6"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
   ],
  // ---- YOUR MUSIC VIDEOS ----
   videos: [
