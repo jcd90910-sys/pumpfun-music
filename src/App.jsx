@@ -9,17 +9,22 @@ const CONFIG = {
   // ---- CUSTOM ARTIST PHOTOS ----
   // Artist name must match EXACTLY what's in your songs
   artistCovers: {
-    "Pmoney Glitxh & YungSol": "/covers/pmoney-artist.jpg",
-    "The Homeless": "/covers/homeless-artist.jpg",
-    "Lil Bubble": "/covers/lilbubble-artist.jpg",
-    "Morgan Pumpen": "/covers/morgan-artist.jpg",
+    "Pmoney Glitxh & YungSol": "/covers/IMG_8992.jpg",
+    "The Homeless": "/covers/IMG_8993.jpg",
+    "Lil Bubble": "/covers/IMG_8994.JPG",
+    "Morgan Pumpen": "/covers/IMG_8995.JPG",
+    "CryptoWed": "/covers/IMG_8999.jpg",
+    "Orausdai": "/covers/IMG_9001.JPG",
+    "SolSkib": "/covers/IMG_9002.JPG",
+    "WOW Exchange": "/covers/IMG_8997.PNG",
+    "Money Man": "/covers/IMG_8996.JPG",
   },
 
   // ---- CUSTOM ALBUM COVERS ----
   // Album name must match EXACTLY what's in your songs
   albumCovers: {
-    "Blockchain": "/covers/blockchain-album.jpg",
-    "Crypto Hits": "/covers/crypto-hits-album.jpg",
+    "Blockchain": "/covers/IMG_9003.jpg",
+    "Crypto Bubble": "/covers/IMG_9005.jpg",
   },
   // ---- YOUR BRAND ----
   appName: "$PFMUSIC",
