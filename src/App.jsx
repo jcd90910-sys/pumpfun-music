@@ -991,6 +991,7 @@ const Icons = {
   ChevronRight: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>),
   ChevronDown: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>),
   Clock: () => (<svg viewBox="0 0 24 24" style={{width:16,height:16}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>),
+  Plus: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>),
 };
 
 // ============================================================
@@ -1018,6 +1019,8 @@ export default function SpotifyClone() {
   const [showQueue, setShowQueue] = useState(false);
   const [showNowPlaying, setShowNowPlaying] = useState(false);
   const [mobileLyrics, setMobileLyrics] = useState(false);
+  const [mobileQueue, setMobileQueue] = useState(false);
+  const [libraryFilter, setLibraryFilter] = useState("all");
   const [navHistory, setNavHistory] = useState([]);
   const [navFuture, setNavFuture] = useState([]);
   const [, forceUpdate] = useState(0); // only used for song change
@@ -1109,9 +1112,21 @@ export default function SpotifyClone() {
     setIsPlaying(!isPlaying);
   };
 
+  const addToQueue = useCallback((song) => {
+    setQueue((q) => [...q, song]);
+  }, []);
+
   const playNext = useCallback(() => {
     if (queue.length === 0) return;
-    const nextIndex = shuffleOn ? Math.floor(Math.random() * queue.length) : (queueIndex + 1) % queue.length;
+    const nextIndex = shuffleOn ? Math.floor(Math.random() * queue.length) : (queueIndex + 1);
+    if (nextIndex >= queue.length) {
+      // Queue exhausted — start shuffling all songs
+      const shuffled = [...CONFIG.songs].sort(() => Math.random() - 0.5);
+      setQueue(shuffled);
+      setQueueIndex(0);
+      playSong(shuffled[0], shuffled, 0);
+      return;
+    }
     setQueueIndex(nextIndex);
     playSong(queue[nextIndex], null, nextIndex);
   }, [queue, queueIndex, shuffleOn, playSong]);
@@ -1152,7 +1167,7 @@ export default function SpotifyClone() {
     if (!searchQuery.trim()) return { songs: [], albums: [], artists: [], playlists: [] };
     const q = searchQuery.toLowerCase();
     return {
-      songs: CONFIG.songs.filter((s) => s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q) || s.album.toLowerCase().includes(q)),
+      songs: CONFIG.songs.filter((s) => s.title.toLowerCase().includes(q) || s.artist.toLowerCase().includes(q) || s.album.toLowerCase().includes(q) || (s.genre && s.genre.toLowerCase().includes(q))),
       albums: albums.filter((a) => a.name.toLowerCase().includes(q) || a.artist.toLowerCase().includes(q)),
       artists: artists.filter((a) => a.name.toLowerCase().includes(q)),
       playlists: CONFIG.playlists.filter((p) => p.name.toLowerCase().includes(q)),
@@ -1173,7 +1188,7 @@ export default function SpotifyClone() {
     </div>
   );
 
-  const TrackRow = ({ song, index, showAlbum = true, showCover = true, onPlay }) => {
+  const TrackRow = ({ song, index, showAlbum = true, showCover = true, onPlay, hideQueue = false }) => {
     const isActive = currentSong?.id === song.id;
     if (isMobile) {
       return (
@@ -1184,12 +1199,13 @@ export default function SpotifyClone() {
             <div style={{ fontWeight: 600, color: isActive ? theme.primary : theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: 14 }}>{song.title}</div>
             <div style={{ fontSize: 12, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.artist}{showAlbum ? ` \u00B7 ${song.album}` : ""}</div>
           </div>
+          {!hideQueue && <button style={{ background: "none", border: "none", color: theme.textSubdued, cursor: "pointer", padding: 4, flexShrink: 0 }} onClick={(e) => { e.stopPropagation(); addToQueue(song); }}><Icons.Plus size={18} /></button>}
           <span style={{ color: theme.textSubdued, fontSize: 12, flexShrink: 0 }}>{formatTime(song.duration)}</span>
         </div>
       );
     }
     return (
-      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", transition: "background 0.15s", gap: 16 }}
+      <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 100px", alignItems: "center", padding: "8px 16px", borderRadius: 4, cursor: "pointer", transition: "background 0.15s", gap: 16 }}
         onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"} onClick={() => onPlay?.()}>
         <div style={{ fontSize: 15, color: isActive ? theme.primary : theme.textSecondary, textAlign: "center" }}>{isActive && isPlaying ? "\u266B" : index + 1}</div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
@@ -1200,7 +1216,8 @@ export default function SpotifyClone() {
           </div>
         </div>
         <div style={{ fontSize: 14, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }} onClick={(e) => { e.stopPropagation(); navigate("album", { name: song.album }); }}>{showAlbum ? song.album : ""}</div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 8 }}>
+          {!hideQueue && <button style={{ background: "none", border: "none", color: theme.textSubdued, cursor: "pointer", padding: 2, opacity: 0.6 }} onClick={(e) => { e.stopPropagation(); addToQueue(song); }} title="Add to queue"><Icons.Plus size={18} /></button>}
           <span style={{ color: theme.textSecondary, fontSize: 14 }}>{formatTime(song.duration)}</span>
         </div>
       </div>
@@ -1208,7 +1225,7 @@ export default function SpotifyClone() {
   };
 
   const TrackListHeader = () => isMobile ? null : (
-    <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 80px", padding: "0 16px 8px", borderBottom: `1px solid ${theme.divider}`, color: theme.textSubdued, fontSize: 12, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", gap: 16, marginBottom: 8 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "40px 1fr 1fr 100px", padding: "0 16px 8px", borderBottom: `1px solid ${theme.divider}`, color: theme.textSubdued, fontSize: 12, fontWeight: 600, letterSpacing: 1, textTransform: "uppercase", gap: 16, marginBottom: 8 }}>
       <div style={{ textAlign: "center" }}>#</div><div>Title</div><div>Album</div>
       <div style={{ textAlign: "right", display: "flex", justifyContent: "flex-end", alignItems: "center", gap: 4 }}><Icons.Clock /> Time</div>
     </div>
@@ -1239,7 +1256,7 @@ export default function SpotifyClone() {
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
         <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
-        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: testestestest</div>
+        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
             <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
@@ -1297,18 +1314,23 @@ export default function SpotifyClone() {
     </div>);
   };
 
-  const LibraryView = () => (
-    <div style={{ padding: `0 ${pad}px ${pad}px` }}>
-      <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>Your Library</div>
-      <div style={{ display: "flex", gap: 8, marginBottom: isMobile ? 16 : 24, flexWrap: "wrap" }}>
-        {["Playlists", "Albums", "Artists"].map((tab) => (<button key={tab} style={{ background: theme.bgElevated, border: "none", color: theme.textPrimary, padding: "8px 16px", borderRadius: 20, cursor: "pointer", fontSize: isMobile ? 12 : 14, fontWeight: 600 }}>{tab}</button>))}
+  const LibraryView = () => {
+    const filters = [{ id: "all", label: "All" }, { id: "playlists", label: "Playlists" }, { id: "albums", label: "Albums" }, { id: "artists", label: "Artists" }];
+    return (
+      <div style={{ padding: `0 ${pad}px ${pad}px` }}>
+        <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>Your Library</div>
+        <div style={{ display: "flex", gap: 8, marginBottom: isMobile ? 16 : 24, flexWrap: "wrap" }}>
+          {filters.map((f) => (<button key={f.id} onClick={() => setLibraryFilter(f.id)}
+            style={{ background: libraryFilter === f.id ? theme.primary : theme.bgElevated, border: "none", color: libraryFilter === f.id ? "#000" : theme.textPrimary, padding: "8px 16px", borderRadius: 20, cursor: "pointer", fontSize: isMobile ? 12 : 14, fontWeight: 600, transition: "all 0.15s" }}>{f.label}</button>))}
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(180px, 1fr))", gap: isMobile ? 10 : 16 }}>
+          {(libraryFilter === "all" || libraryFilter === "playlists") && CONFIG.playlists.map((pl) => (<Card key={pl.id} title={pl.name} subtitle={pl.description} imgUrl={pl.coverUrl} onClick={() => navigate("playlist", pl)} />))}
+          {(libraryFilter === "all" || libraryFilter === "albums") && albums.map((alb) => (<Card key={alb.name} title={alb.name} subtitle={`${alb.artist} \u00B7 Album`} imgUrl={alb.coverUrl} onClick={() => navigate("album", alb)} />))}
+          {(libraryFilter === "all" || libraryFilter === "artists") && artists.map((a) => (<Card key={a.name} title={a.name} subtitle={`${a.songs.length} song${a.songs.length > 1 ? "s" : ""}`} imgUrl={a.coverUrl} isRound onClick={() => navigate("artist", a)} />))}
+        </div>
       </div>
-      <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(180px, 1fr))", gap: isMobile ? 10 : 16 }}>
-        {CONFIG.playlists.map((pl) => (<Card key={pl.id} title={pl.name} subtitle={pl.description} imgUrl={pl.coverUrl} onClick={() => navigate("playlist", pl)} />))}
-        {albums.map((alb) => (<Card key={alb.name} title={alb.name} subtitle={`${alb.artist} \u00B7 Album`} imgUrl={alb.coverUrl} onClick={() => navigate("album", alb)} />))}
-      </div>
-    </div>
-  );
+    );
+  };
 
   const PlaylistView = ({ playlist }) => {
     const songs = playlist.songIds.map((id) => CONFIG.songs.find((s) => s.id === id)).filter(Boolean);
@@ -1562,12 +1584,15 @@ export default function SpotifyClone() {
         <div style={{ position: "fixed", inset: 0, zIndex: 50, background: theme.bgBase, display: "flex", flexDirection: "column" }}>
           {/* Header */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", flexShrink: 0 }}>
-            <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => { setShowNowPlaying(false); setMobileLyrics(false); }}><Icons.ChevronDown size={28} /></button>
-            <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: theme.textSecondary }}>Now Playing</div>
-            <button style={{ background: "none", border: "none", color: mobileLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => setMobileLyrics(!mobileLyrics)}><Icons.Lyrics size={24} /></button>
+            <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4 }} onClick={() => { setShowNowPlaying(false); setMobileLyrics(false); setMobileQueue(false); }}><Icons.ChevronDown size={28} /></button>
+            <div style={{ fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1, color: theme.textSecondary }}>{mobileQueue ? "Queue" : "Now Playing"}</div>
+            <div style={{ display: "flex", gap: 12 }}>
+              <button style={{ background: "none", border: "none", color: mobileQueue ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => { setMobileQueue(!mobileQueue); setMobileLyrics(false); }}><Icons.Queue size={24} /></button>
+              <button style={{ background: "none", border: "none", color: mobileLyrics ? theme.primary : theme.textSecondary, cursor: "pointer", padding: 4 }} onClick={() => { setMobileLyrics(!mobileLyrics); setMobileQueue(false); }}><Icons.Lyrics size={24} /></button>
+            </div>
           </div>
 
-          {!mobileLyrics ? (
+          {!mobileLyrics && !mobileQueue ? (
             <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "0 24px 24px", overflow: "hidden" }}>
               {/* Album art */}
               <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -1625,8 +1650,8 @@ export default function SpotifyClone() {
                 <button style={{ background: "none", border: "none", color: repeatMode > 0 ? theme.primary : "#fff", cursor: "pointer", padding: 8, display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => setRepeatMode((r) => (r + 1) % 3)}><Icons.Repeat /></button>
               </div>
             </div>
-          ) : (
-            /* LYRICS VIEW - completely isolated scrollable container */
+          ) : mobileLyrics ? (
+            /* LYRICS VIEW */
             <div style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "0 24px 16px", flexShrink: 0 }}>
                 <img src={currentSong.coverUrl} alt="" style={{ width: 48, height: 48, borderRadius: 4 }} />
@@ -1636,6 +1661,36 @@ export default function SpotifyClone() {
                 <div style={{ fontSize: 18, fontWeight: 700, lineHeight: 2, color: theme.textPrimary, whiteSpace: "pre-wrap", paddingBottom: 80 }}>
                   {currentSong.lyrics || "No lyrics available."}
                 </div>
+              </div>
+            </div>
+          ) : (
+            /* MOBILE QUEUE VIEW */
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", minHeight: 0, padding: "0 16px" }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Now Playing</div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 4px", borderRadius: 4, background: theme.bgHighlight, marginBottom: 16 }}>
+                <img src={currentSong.coverUrl} alt="" style={{ width: 44, height: 44, borderRadius: 4, objectFit: "cover" }} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ fontWeight: 600, fontSize: 14, color: theme.primary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{currentSong.title}</div>
+                  <div style={{ fontSize: 12, color: theme.textSecondary }}>{currentSong.artist}</div>
+                </div>
+                <span style={{ color: theme.textSubdued, fontSize: 12, paddingRight: 8 }}>{formatTime(currentSong.duration)}</span>
+              </div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: theme.textSecondary, textTransform: "uppercase", letterSpacing: 1, marginBottom: 8 }}>Next Up</div>
+              <div style={{ flex: 1, overflowY: "scroll", WebkitOverflowScrolling: "touch", minHeight: 0 }}>
+                {queue.slice(queueIndex + 1).map((song, i) => (
+                  <div key={song.id + i} style={{ display: "flex", alignItems: "center", gap: 12, padding: "8px 4px", borderRadius: 4, cursor: "pointer" }}
+                    onClick={() => playSongFromList(queue, queueIndex + 1 + i)}
+                    onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}>
+                    <span style={{ color: theme.textSubdued, fontSize: 13, width: 20, textAlign: "center", flexShrink: 0 }}>{i + 1}</span>
+                    <img src={song.coverUrl} alt="" style={{ width: 40, height: 40, borderRadius: 4, objectFit: "cover", flexShrink: 0 }} />
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontWeight: 600, fontSize: 14, color: theme.textPrimary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.title}</div>
+                      <div style={{ fontSize: 12, color: theme.textSecondary, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{song.artist}</div>
+                    </div>
+                    <span style={{ color: theme.textSubdued, fontSize: 12, flexShrink: 0 }}>{formatTime(song.duration)}</span>
+                  </div>
+                ))}
+                {queue.length <= queueIndex + 1 && <div style={{ color: theme.textSubdued, padding: 24, textAlign: "center" }}>Queue is empty. Songs will shuffle automatically when the current track ends.</div>}
               </div>
             </div>
           )}
