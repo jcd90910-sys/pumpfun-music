@@ -1607,7 +1607,7 @@ export default function SpotifyClone() {
     const recentMix = useMemo(() => CONFIG.songs.slice().sort(() => 0.5 - Math.random()).slice(0, 6), []);
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
-        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
+        <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning trencher" : new Date().getHours() < 18 ? "afternoon trencher" : "evening trencher"}</h2>
         <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: No CA exists yet. Check X: @PumpfunMusicSOL for updates</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
