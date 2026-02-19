@@ -935,7 +935,7 @@ So I vote for Trump yeah`,
       artist: "Orausdai",
       album: "Single",
       duration: 70,
-      audioUrl: "public/songs/pump_fun_pepe_song_#pfp_128k.mp3",
+      audioUrl: "/songs/nigger.mp3",
       coverUrl: "/covers/a73995a5-3ace-4adf-a5fd-463619b8e34b.png",
       lyrics: `[Verse 1]
 Pumpfun season, no sleep, no reason
@@ -988,7 +988,7 @@ Whole gang in pepe in the room`,
       artist: "SolSkib",
       album: "Single",
       duration: 60,
-      audioUrl: "public/songs/Solana_song_#bitcoin_#bnb_#ethereum_#ada_#binance_#crypto_#song_#video_#solana_128k.mp3",
+      audioUrl: "/songs/fags.mp3",
       coverUrl: "/covers/3c193ce6-edd1-468d-8009-3354fbfb0643.png",
       lyrics: `[Verse 1]
 Solana shines with grace
