@@ -926,7 +926,7 @@ So I vote for Trump yeah`,
       id: "v1",
       title: "Get Rugged (Official Music Video)",
       artist: "The Homeless",
-      videoUrl: "/videos/1771461963547107.MP4",
+      videoUrl: "/videos/new.MP4",
       thumbnailUrl: "/covers/IMG_8979.jpg",
       duration: "1:06",
       description: "The Homeless Music Debut",
@@ -1433,7 +1433,7 @@ export default function SpotifyClone() {
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(300px, 1fr))", gap: isMobile ? 16 : 20 }}>
             {videos.map((vid) => (
               <div key={vid.id} style={{ background: theme.bgSurface, borderRadius: 8, overflow: "hidden", cursor: "pointer", transition: "background 0.2s" }}
-                onClick={() => { setPlayingVideo(vid); navigate("videoPlayer", vid); }}
+                onClick={() => { if (isPlaying) { audioRef.current.pause(); setIsPlaying(false); } navigate("videoPlayer", vid); }}
                 onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = theme.bgSurface}>
                 <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", background: "#000" }}>
                   {vid.thumbnailUrl && <img src={vid.thumbnailUrl} alt={vid.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />}
@@ -1463,9 +1463,12 @@ export default function SpotifyClone() {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", background: "#000", borderRadius: 8, overflow: "hidden", marginBottom: 16 }}>
             {isYouTube ? (
-              <iframe src={`https://www.youtube.com/embed/${getYouTubeId(video.videoUrl)}?autoplay=1`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }} allow="autoplay; encrypted-media" allowFullScreen />
+              <iframe src={`https://www.youtube.com/embed/${getYouTubeId(video.videoUrl)}?autoplay=1&rel=0`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }} allow="autoplay; encrypted-media; fullscreen" allowFullScreen />
             ) : video.videoUrl ? (
-              <video src={video.videoUrl} controls autoPlay style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+              <video controls autoPlay playsInline webkit-playsinline="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", background: "#000" }}>
+                <source src={video.videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             ) : (
               <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: theme.textSubdued }}>No video URL provided</div>
             )}
