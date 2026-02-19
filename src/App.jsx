@@ -647,7 +647,7 @@ The future's now
 Rug pull rug pull yeah I stay cool
 But at the top burn fast I was a fool
 Hey market maker
-Why ZooMama head sellin whips on my bags like a crypto fatality
+Why ZooMama head sellin whips on my bags like a Crypto fatality
 Shook me hard but I'm back with a plan 
 From chaos to calm watch me understand
 Eyes open never late 
@@ -870,7 +870,7 @@ I mean yeah we win
 I mean like twin
 I mean yeah we win
 Bullish ass coins yeah I make a call 
-I’m like the jordan of Crypto I ball
+I'm like the jordan of Crypto I ball
 Bitch I dont fumble yeah I never fall
 My graph jump so high so tall
 
@@ -913,12 +913,12 @@ So I vote for Trump yeah`,
 
   // ---- YOUR PLAYLISTS ----
   playlists: [
-    { id: "pl1", name: "Orangie's Playlist", description: "It's just getting started", songIds: ["5", "11", "2", "9"], coverUrl: "/covers/G-kEDY5WcAEc_li.jpeg" },
-    { id: "pl2", name: "The Duve's Favorites", description: "Pre Duve Hype Music", songIds: ["6", "8", "3", "10", "12"], coverUrl: "/covers/the duve.jpeg" },
+    { id: "pl1", name: "Orangie's Playlist", description: "It's just getting started", songIds: ["10", "11", "6", "9"], coverUrl: "/covers/G-kEDY5WcAEc_li.jpeg" },
+    { id: "pl2", name: "The Duve's Favorites", description: "Pre Duve Hype Music", songIds: ["6", "2", "", "", ""], coverUrl: "/covers/the duve.jpeg" },
     { id: "pl3", name: "Pumpfun Songs", description: "Songs about Pumpfun", songIds: ["1", "4", "10", "12", "7"], coverUrl: "/covers/pump.jpg" },
-    { id: "pl4", name: "Cupsey's Music", description: "Music for dumping 10k toppers", songIds: ["5", "7", "9", "11", "2"], coverUrl: "/covers/cup.jpg" },
+    { id: "pl4", name: "Cupsey's Music", description: "Music for dumping 10k toppers", songIds: ["2", "7", "9", "11", "2"], coverUrl: "/covers/cup.jpg" },
     { id: "pl5", name: "Ansem", description: "Personal favs", songIds: ["8", "3", "6", "1", "10"], coverUrl: "/covers/ansem.png" },
-    { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["9", "2", "4", "11"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
+    { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["", "2", "4", "11"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
   ],
 };
 
@@ -1269,7 +1269,7 @@ export default function SpotifyClone() {
         </div>
       </div>
       {[
-        { title: "Most Popular", items: CONFIG.songs.slice(0, isMobile ? 4 : 5), type: "song" },
+        { title: "Pumpfun Music's Popular Hits", items: CONFIG.songs.slice(0, isMobile ? 4 : 5), type: "song" },
         { title: "Featured Playlists", items: CONFIG.playlists.slice(0, isMobile ? 4 : CONFIG.playlists.length), type: "playlist" },
         { title: "Albums", items: albums, type: "album" },
         { title: "Artists", items: artists, type: "artist" },
