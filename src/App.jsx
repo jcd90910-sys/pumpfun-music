@@ -1258,6 +1258,11 @@ const getAlbums = () => {
     }
     albumMap[song.album].songs.push(song);
   });
+  // Apply custom album covers from CONFIG.albumCovers
+  const overrides = CONFIG.albumCovers || {};
+  Object.values(albumMap).forEach((alb) => {
+    if (overrides[alb.name]) alb.coverUrl = overrides[alb.name];
+  });
   return Object.values(albumMap);
 };
 
@@ -1268,6 +1273,11 @@ const getArtists = () => {
       artistMap[song.artist] = { name: song.artist, songs: [], coverUrl: song.coverUrl };
     }
     artistMap[song.artist].songs.push(song);
+  });
+  // Apply custom artist photos from CONFIG.artistCovers
+  const artOverrides = CONFIG.artistCovers || {};
+  Object.values(artistMap).forEach((art) => {
+    if (artOverrides[art.name]) art.coverUrl = artOverrides[art.name];
   });
   return Object.values(artistMap);
 };
@@ -1578,7 +1588,7 @@ export default function SpotifyClone() {
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
         <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
-        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: No CA exists yet</div>
+        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: No CA exists yet. Check X: @PumpfunMusicSOL for updates</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
             <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
@@ -1624,7 +1634,7 @@ export default function SpotifyClone() {
 
   const SearchView = () => {
     const genres = ["Pop", "Rock", "Rap", "Lo-fi", "Indie", "Alternative", "Funk", "Folk"];
-    const genreColors = ["#E13300", "#8400E7", "#00e1ff", "#E8115B", "#E91429", "#148A08", "#DC148C", "#537AA2"];
+    const genreColors = ["#E13300", "#8400E7", "#01a895", "#E8115B", "#E91429", "#148A08", "#DC148C", "#537AA2"];
     const hasQuery = searchQuery.trim().length > 0;
     return (<div>
       {!hasQuery && (<div style={{ padding: `0 ${pad}px ${pad}px` }}>
