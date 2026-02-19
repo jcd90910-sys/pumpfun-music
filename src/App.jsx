@@ -931,6 +931,15 @@ So I vote for Trump yeah`,
       duration: "1:06",
       description: "The Homeless Music Debut",
     },
+    {
+      id: "v2",
+      title: "F*CK TUAH (Official Music Video)",
+      artist: "Pmoney Glitxh & YungSol",
+      videoUrl: "/videos/FUCKTUAH.mp4",
+      thumbnailUrl: "/covers/maxresdefault.webp",
+      duration: "2:12",
+      description: "Fuck Hawk Tuah girl for being a rugger. This music video was filmed all in New York City with a paid billboard showing.",
+    },
   ],
 };
 
