@@ -940,6 +940,15 @@ So I vote for Trump yeah`,
       duration: "2:12",
       description: "Fuck Hawk Tuah girl for being a rugger. This music video was filmed all in New York City with a paid billboard showing.",
     },
+    {
+      id: "v3",
+      title: "Donald Pump (Official Music Video)",
+      artist: "Pmoney Glitxh & YungSol",
+      videoUrl: "/videos/Donald Pump - Pmoney Glitxh & YungSol (Official Music Video).mp4",
+      thumbnailUrl: "/covers/Screenshot 2026-02-18 at 5.42.42 PM.png",
+      duration: "2:40",
+      description: "We got Donald Trump in office with the ambitious claim to be the Crypto President of The World. Cheers to him for dumping everything anyways.",
+    },
   ],
 };
 
