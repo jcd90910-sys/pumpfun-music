@@ -1345,10 +1345,10 @@ export default function SpotifyClone() {
       {/* Follow on X */}
       <div style={{ padding: `${isMobile ? 16 : 32}px ${pad}px ${isMobile ? 24 : 40}px`, textAlign: "center" }}>
         <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: theme.bgElevated, padding: isMobile ? "12px 20px" : "14px 28px", borderRadius: 30, cursor: "pointer", transition: "opacity 0.2s" }}
-          onClick={() => window.open("https://x.com/TestingX", "_blank")}
+          onClick={() => window.open("https://x.com/PumpfunMusicSOL", "_blank")}
           onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"} onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
           <svg viewBox="0 0 24 24" style={{width:18,height:18}} fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span style={{ fontWeight: 700, fontSize: isMobile ? 14 : 16, color: theme.textPrimary }}>Follow us on X: @TestingX</span>
+          <span style={{ fontWeight: 700, fontSize: isMobile ? 14 : 16, color: theme.textPrimary }}>Follow us on X: @PumpfunMusicSOL</span>
         </div>
       </div>
     </div>);
@@ -1510,13 +1510,24 @@ export default function SpotifyClone() {
   };
 
   const ChartView = () => {
-    const chartUrl = CONFIG.chartUrl || "https://dexscreener.com/solana/2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd";
-    const embedUrl = chartUrl.replace("dexscreener.com", "dexscreener.com/embed");
+    // DexScreener supports ?embed=1&theme=dark for iframe embedding
+    const pairAddr = CONFIG.dexscreenerPair || "2uf4xh61rdwxng9woyxsvqp7zua6klfpb3nvnrqeoisd";
+    const chain = CONFIG.dexscreenerChain || "solana";
+    const embedSrc = `https://dexscreener.com/${chain}/${pairAddr}?embed=1&theme=dark`;
+    const fullUrl = `https://dexscreener.com/${chain}/${pairAddr}`;
     return (
-      <div style={{ padding: `0 ${pad}px ${pad}px`, height: "100%" }}>
-        <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>$PFMUSIC Chart</div>
-        <div style={{ borderRadius: 12, overflow: "hidden", background: "#000", height: isMobile ? "calc(100vh - 220px)" : "calc(100vh - 240px)" }}>
-          <iframe src={embedUrl} style={{ width: "100%", height: "100%", border: "none" }} title="DEXScreener Chart" />
+      <div style={{ padding: `0 ${pad}px ${pad}px` }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px`, flexWrap: "wrap", gap: 12 }}>
+          <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700 }}>$PFMUSIC Chart</div>
+          <button style={{ display: "flex", alignItems: "center", gap: 8, background: "#1C1C1E", border: "1px solid #333", color: "#fff", padding: "10px 20px", borderRadius: 8, cursor: "pointer", fontWeight: 700, fontSize: 14 }}
+            onClick={() => window.open(fullUrl, "_blank")}
+            onMouseEnter={(e) => e.currentTarget.style.background = "#2a2a2a"} onMouseLeave={(e) => e.currentTarget.style.background = "#1C1C1E"}>
+            <svg viewBox="0 0 24 24" style={{width:18,height:18}} fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            Open Full Chart
+          </button>
+        </div>
+        <div style={{ borderRadius: 12, overflow: "hidden", background: "#0d1117", height: isMobile ? "calc(100vh - 240px)" : "calc(100vh - 260px)" }}>
+          <iframe src={embedSrc} width="100%" height="100%" style={{ border: 0, borderRadius: 12 }} loading="lazy" title="DexScreener Chart" />
         </div>
       </div>
     );
