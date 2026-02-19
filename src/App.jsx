@@ -909,6 +909,265 @@ So I vote for Trump yeah`,
       genre: "Rap",
       year: 2025,
     },
+    {
+      id: "13",
+      title: "Pepe To The Moon",
+      artist: "Orausdai",
+      album: "Single",
+      duration: 70,
+      audioUrl: "/songs/pump_fun_pepe_song_#pfp_128k.mp3",
+      coverUrl: "/covers/a73995a5-3ace-4adf-a5fd-463619b8e34b.png",
+      lyrics: `[Verse 1]
+Pumpfun season, no sleep, no reason
+We making dreams, let's go
+
+[Chorus]
+Pumpfun Pepe, we go to the moon
+Buy it low, sell it high, not too soon
+Green frog dripping chart go boom
+
+[Verse 2]
+Whole gang winning Pepe in the room
+I'm the meme turn king, call me Crypto profit
+Frogs in the wallet, diamond hands, lock it
+Chart looking crazy, lines parabolic
+They laughing at the start, now they fomo on the topic
+Token on the chain built for the culture
+GM in the chat vibe like a sculpture
+Pumpfun the stage, Pepe the actor
+The liquidity is up, no rug, just laughter
+Boom
+
+[Chorus]
+Pumpfun pepe, we go to the moon
+Buy it low, sell it high, not too soon
+Green frog dripping chart go boom
+Whole gang in Pepe in the room
+
+[Verse 3]
+I'm scrolling DEX see the chart go vertical
+Pepe so viral it's practically surgical
+From zero, o 1 to a whole new decimal
+This ain't no rug, it's generational
+
+[Chorus
+Pumpfun pepe, we go to the moon
+Buy it low, sell it high, not too soon
+Green frog dripping chart go boom
+Whole gang in pepe in the room
+Pumpfun pepe, we go to the moon
+Buy low, sell high, not too soon
+Green frog dripping chart go boom
+Whole gang in pepe in the room`,
+      genre: "Rap",
+      year: 2025,
+    },
+    {
+      id: "14",
+      title: "Solana Song",
+      artist: "SolSkib",
+      album: "Single",
+      duration: 60,
+      audioUrl: "/songs/Solana_song_#bitcoin_#bnb_#ethereum_#ada_#binance_#crypto_#song_#video_#solana_128k.mp3",
+      coverUrl: "/covers/3c193ce6-edd1-468d-8009-3354fbfb0643.png",
+      lyrics: `[Verse 1]
+Solana shines with grace
+A beacon in the crypto race
+
+Born form minds of techolade
+With visions strong, they did compete
+To craft a chain both swift and neat
+Scalability and security
+HODL the token of this realm
+Poh's Clock keeps time ahead
+With each transaction
+
+A token, token of this realm
+Where the Pohs clock keeps time ahead
+With each transaction
+A token to overwhelm
+Solana's network
+
+[Verse 2]
+POH, the decentralized clock
+In Solana's design
+Is the bedrock
+No need for trust in a single file
+Each node ticks with its own stock
+
+Transaction swift
+Fees paid in SOL
+A deflationary tale
+
+As tokens toll
+Burning bright
+Each one's roll
+Inscalable token of this realm
+The POHSClock`,
+      genre: "Pop",
+      year: 2025,
+    },
+    {
+      id: "15",
+      title: "Emergency Funds",
+      artist: "CryptoWed",
+      album: "Single",
+      duration: 149,
+      audioUrl: "/songs/Emergency_Funds_for_Marriage_💍_Official_Crypto_Meme_Song_2025_🚀_(Pump.fun_Coin_Anthem)_128k.mp3",
+      coverUrl: "/covers/fa5d6d84-d332-4c60-967a-0c3810a6f66b.png",
+      lyrics: `[Chorus]
+I need emergency funds for marriage
+Traded that coin, don't be average
+Oh yeah, oh yeah
+Stack that bag, make you lavish
+Oh yeah, oh yeah
+Pump that chart, it's savage
+
+[Verse 2]
+From TikTok stars to Crypto kings
+Everybody flexing diamond rings
+But me, I'm playing smart, not fake
+Turn that meme coin into wedding cake
+Influencers, where you at?
+Let's light it up, no time to chat
+One tweet, one post, this lit
+Pump that coin, yeah, we all commit
+
+[Chorus]
+I need emergency funds for marriage
+Oh yeah, Oh yeah
+Let the profits through the carriage
+Oh yeah, oh yeah,
+From heartbreak to high a leverage
+Oh yeah, oh yeah
+Pump that coin full of coverage
+
+[Verse 3]
+So raise your glass, the deal is done
+From broke to boss, we had a run
+One coin, one dream, one vibe, one plan
+Emergency fund turn wedding band
+Cut
+
+[Verse 4]
+Yeah, yeah
+We don't wait for luck
+It's a wedding, not a duck aye
+Emergency funds, let's pump it up
+That coin, Pump that coin
+Pump that coin
+Pump, pump that coin
+Got the ring, got the suit, but my wallet Looking weak
+need a quick flip profits in a week
+Ride on my phone saying, don't be late
+So I'm on PumpFun, tryna change my fate
+
+[Chorus]
+I Emergency funds for marriage
+Trade that coin, don't be average
+Stack that bag, make it lavish
+Pump That chart its savage
+
+From TikTok stars to crypto kings
+Everybody flexing diamond rings
+But me, I'm playing smart, not fake
+Turn the memecoin into wedding cake
+Influencers, where you at?
+Let's light it up, no time to chat
+One tweet, one post, it's lit
+Pump that coin, yeah, we all commit
+
+Emergency funds for marriage
+Let the profits through the carriage
+From heartbreak to high leverage
+Pump that coin for coverage
+
+[Verse 5]
+So raise the glass, the deal is done
+From broke to boss, we had a run
+One coin, one dream, one buy, one plan
+Emergency fund turned wedding band coin`,
+      genre: "Pop",
+      year: 2025,
+    },
+    {
+      id: "16",
+      title: "Pump It Up",
+      artist: "Lil Bubble",
+      album: "Crypto Bubble",
+      duration: 126,
+      audioUrl: "/songs/Lil_Bubble_-_Pump_It_Up_(Crypto_Bitcoin_Version)_Joe_Budden_Parody_128k.mp3",
+      coverUrl: "/covers/fb27d58a-055c-4573-8eb1-e0f8f26f787c.png",
+      lyrics: `[Intro]
+Pump, pump, pump,p-p-p-p-pump
+Pump, pump, pump it up
+Pump,p-p-pump, pump, pump, pump
+Pump,p-p-pump,pump it up
+Pump,p-p-pump,pump it up
+
+[Verse 1]
+Look, pump it up if you game and went long
+When the dip hit
+You just aped like King Kong
+More than 5 sats in your stack
+Then get it on
+Had the people on my back to get a song
+Bears broke, have a toke
+We smoked em like a bong
+
+Oh yeah, we heard Cramer report that
+Its dead
+He said sell
+We bought more bags
+Til we got a sore back
+Can't short you, dork
+We can't afford that
+Wait for the pump to come
+Wish you'da bought that
+Crypto to zero
+They really thought that
+
+[Verse 2]
+You can call me 3AC cos im blowin it up
+Short squeeze, more please
+Yeah, it's going to pump
+They dropped FUD, but it's still not slowing it up
+I can't wait til the fed starts showing us love
+The bull flag on the chart got me blowing a nut, uh
+
+[Chorus]
+Whales, do your thing, let me do my thing
+You know we bout as long as a piece of string
+Shorters, close em fast before you do your ass
+C'mon, lose your cash cos it's moving fast
+Jerome, do your thing, let me do my thing
+Pump, pump, pump it up
+
+[Verse 3]
+I see some shorters selling
+See the news reporters telling
+Us all to sell it
+We start longing that shit
+So we can hop in this ship
+And we can-
+
+[Chorus]
+Pump, pump, pump it up
+Whales, do your thing, let me do my thing
+You know we bout as long as a piece of string
+Shorters, close em fast before you do your ass
+C'mon, lose your cash cos it's moving fast
+Jerome, do your thing, let me do my thing
+Pump, pump, pump it up
+
+Pump, pump, pump,p-p-p-p-pump
+Pump, pump, pump it up
+Pump,p-p-pump, pump, pump, pump
+Pump,p-p-pump,pump it up
+Pump,p-p-pump,pump it up`,
+      genre: "Pop",
+      year: 2025,
+    },
   ],
 
   // ---- YOUR PLAYLISTS ----
