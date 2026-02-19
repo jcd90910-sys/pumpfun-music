@@ -920,6 +920,18 @@ So I vote for Trump yeah`,
     { id: "pl5", name: "Ansem", description: "Personal favs", songIds: ["8", "3", "6", "1", "10"], coverUrl: "/covers/ansem.png" },
     { id: "pl6", name: "Cented's Bangers", description: "These get me hyped", songIds: ["", "2", "4", "11"], coverUrl: "/covers/faze-cented.jpg.jpeg" },
   ],
+ // ---- YOUR MUSIC VIDEOS ----
+  videos: [
+    {
+      id: "v1",
+      title: "Get Rugged (Official Music Video)",
+      artist: "The Homeless",
+      videoUrl: "/videos/1771461963547107.MP4",
+      thumbnailUrl: "/covers/IMG_8979.jpg",
+      duration: "1:06",
+      description: "The Homeless Music Debut",
+    },
+  ],
 };
 
 // ============================================================
