@@ -949,6 +949,15 @@ So I vote for Trump yeah`,
       duration: "2:40",
       description: "We got Donald Trump in office with the ambitious claim to be the Crypto President of The World. Cheers to him for dumping everything anyways.",
     },
+    {
+      id: "v4",
+      title: "Da Blockchain (Official Music Video)",
+      artist: "Pmoney Glitxh & YungSol",
+      videoUrl: "/videos/Blockchain - Pmoney Glitxh & YungSol (Official Music Video).mp4",
+      thumbnailUrl: "/covers/maxresdefault (1).webp",
+      duration: "2:09",
+      description: "Pmoney Glitxh & YungSol's first ever song together. Come give it a listen.",
+    },
   ],
 };
 
