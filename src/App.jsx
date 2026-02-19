@@ -25,7 +25,7 @@ const CONFIG = {
   albumCovers: {
     "Blockchain": "/covers/IMG_9003.jpg",
     "Crypto Bubble": "/covers/IMG_9005.jpg",
-    "Single": "/covers/PFMUSIC.png",
+    "Single": "/PFMUSIC.png",
   },
   // ---- YOUR BRAND ----
   appName: "$PFMUSIC",
