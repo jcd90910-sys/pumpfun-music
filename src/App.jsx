@@ -925,6 +925,25 @@ So I vote for Trump yeah`,
 // ============================================================
 // HELPER FUNCTIONS
 // ============================================================
+// 
+// To add MUSIC VIDEOS, add a "videos" array to your CONFIG:
+//
+//   videos: [
+//     {
+//       id: "v1",
+//       title: "My Music Video",
+//       artist: "Artist Name",
+//       videoUrl: "/videos/my-video.mp4",           // Local .mp4 in public/videos/
+//       // videoUrl: "https://youtu.be/dQw4w9WgXcQ", // OR a YouTube link
+//       thumbnailUrl: "/covers/my-thumbnail.jpg",    // Thumbnail image
+//       duration: "3:45",                            // Display duration
+//       description: "Official music video",         // Optional
+//     },
+//   ],
+//
+// Place .mp4 files in: public/videos/
+// YouTube links auto-embed. Local .mp4 files play natively.
+// ============================================================
 
 const formatTime = (seconds) => {
   if (!seconds || isNaN(seconds)) return "0:00";
@@ -992,6 +1011,8 @@ const Icons = {
   ChevronDown: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z"/></svg>),
   Clock: () => (<svg viewBox="0 0 24 24" style={{width:16,height:16}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>),
   Plus: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>),
+  Video: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm6 12l6-4-6-4v8z"/></svg>),
+  Menu: ({ size = 24 }) => (<svg viewBox="0 0 24 24" style={{width:size,height:size,minWidth:size,minHeight:size}} fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>),
 };
 
 // ============================================================
@@ -1020,7 +1041,9 @@ export default function SpotifyClone() {
   const [showNowPlaying, setShowNowPlaying] = useState(false);
   const [mobileLyrics, setMobileLyrics] = useState(false);
   const [mobileQueue, setMobileQueue] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
   const [libraryFilter, setLibraryFilter] = useState("all");
+  const [playingVideo, setPlayingVideo] = useState(null);
   const [navHistory, setNavHistory] = useState([]);
   const [navFuture, setNavFuture] = useState([]);
   const [, forceUpdate] = useState(0); // only used for song change
@@ -1256,7 +1279,7 @@ export default function SpotifyClone() {
     return (<div>
       <div style={{ padding: `0 ${pad}px 8px` }}>
         <h2 style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: "8px 0 4px" }}>Good {new Date().getHours() < 12 ? "morning" : new Date().getHours() < 18 ? "afternoon" : "evening"}</h2>
-        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: TEST TEST TEST CA POSTED SOON</div>
+        <div style={{ fontSize: 12, color: theme.textSecondary, marginBottom: 16, fontFamily: "monospace", letterSpacing: 0.5 }}>CA: 7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU</div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr 1fr" : "repeat(auto-fill, minmax(280px, 1fr))", gap: 8 }}>
           {topSongs.map((song) => (
             <div key={song.id} style={{ display: "flex", alignItems: "center", background: `${theme.bgElevated}88`, borderRadius: 4, overflow: "hidden", cursor: "pointer", transition: "background 0.2s", height: isMobile ? 48 : 64 }}
@@ -1269,7 +1292,7 @@ export default function SpotifyClone() {
         </div>
       </div>
       {[
-        { title: "Pumpfun Music's Popular Hits", items: CONFIG.songs.slice(0, isMobile ? 4 : 5), type: "song" },
+        { title: "Most Popular", items: CONFIG.songs.slice(0, isMobile ? 4 : 5), type: "song" },
         { title: "Featured Playlists", items: CONFIG.playlists.slice(0, isMobile ? 4 : CONFIG.playlists.length), type: "playlist" },
         { title: "Albums", items: albums, type: "album" },
         { title: "Artists", items: artists, type: "artist" },
@@ -1315,7 +1338,8 @@ export default function SpotifyClone() {
   };
 
   const LibraryView = () => {
-    const filters = [{ id: "all", label: "All" }, { id: "playlists", label: "Playlists" }, { id: "albums", label: "Albums" }, { id: "artists", label: "Artists" }];
+    const filters = [{ id: "all", label: "All" }, { id: "songs", label: "All Songs" }, { id: "playlists", label: "Playlists" }, { id: "albums", label: "Albums" }, { id: "artists", label: "Artists" }];
+    const sortedSongs = useMemo(() => [...CONFIG.songs].sort((a, b) => a.title.localeCompare(b.title)), []);
     return (
       <div style={{ padding: `0 ${pad}px ${pad}px` }}>
         <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>Your Library</div>
@@ -1323,11 +1347,18 @@ export default function SpotifyClone() {
           {filters.map((f) => (<button key={f.id} onClick={() => setLibraryFilter(f.id)}
             style={{ background: libraryFilter === f.id ? theme.primary : theme.bgElevated, border: "none", color: libraryFilter === f.id ? "#000" : theme.textPrimary, padding: "8px 16px", borderRadius: 20, cursor: "pointer", fontSize: isMobile ? 12 : 14, fontWeight: 600, transition: "all 0.15s" }}>{f.label}</button>))}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(180px, 1fr))", gap: isMobile ? 10 : 16 }}>
-          {(libraryFilter === "all" || libraryFilter === "playlists") && CONFIG.playlists.map((pl) => (<Card key={pl.id} title={pl.name} subtitle={pl.description} imgUrl={pl.coverUrl} onClick={() => navigate("playlist", pl)} />))}
-          {(libraryFilter === "all" || libraryFilter === "albums") && albums.map((alb) => (<Card key={alb.name} title={alb.name} subtitle={`${alb.artist} \u00B7 Album`} imgUrl={alb.coverUrl} onClick={() => navigate("album", alb)} />))}
-          {(libraryFilter === "all" || libraryFilter === "artists") && artists.map((a) => (<Card key={a.name} title={a.name} subtitle={`${a.songs.length} song${a.songs.length > 1 ? "s" : ""}`} imgUrl={a.coverUrl} isRound onClick={() => navigate("artist", a)} />))}
-        </div>
+        {libraryFilter === "songs" ? (
+          <div>
+            <TrackListHeader />
+            {sortedSongs.map((song, i) => (<TrackRow key={song.id} song={song} index={i} onPlay={() => playSongFromList(sortedSongs, i)} />))}
+          </div>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(auto-fill, minmax(180px, 1fr))", gap: isMobile ? 10 : 16 }}>
+            {(libraryFilter === "all" || libraryFilter === "playlists") && CONFIG.playlists.map((pl) => (<Card key={pl.id} title={pl.name} subtitle={pl.description} imgUrl={pl.coverUrl} onClick={() => navigate("playlist", pl)} />))}
+            {(libraryFilter === "all" || libraryFilter === "albums") && albums.map((alb) => (<Card key={alb.name} title={alb.name} subtitle={`${alb.artist} \u00B7 Album`} imgUrl={alb.coverUrl} onClick={() => navigate("album", alb)} />))}
+            {(libraryFilter === "all" || libraryFilter === "artists") && artists.map((a) => (<Card key={a.name} title={a.name} subtitle={`${a.songs.length} song${a.songs.length > 1 ? "s" : ""}`} imgUrl={a.coverUrl} isRound onClick={() => navigate("artist", a)} />))}
+          </div>
+        )}
       </div>
     );
   };
@@ -1379,11 +1410,68 @@ export default function SpotifyClone() {
     </div>);
   };
 
+  const VideosView = () => {
+    const videos = CONFIG.videos || [];
+    return (
+      <div style={{ padding: `0 ${pad}px ${pad}px` }}>
+        <div style={{ fontSize: isMobile ? 22 : 28, fontWeight: 700, margin: `${isMobile ? 16 : 24}px 0 ${isMobile ? 12 : 16}px` }}>Music Videos</div>
+        {videos.length === 0 ? (
+          <div style={{ textAlign: "center", padding: 60, color: theme.textSecondary }}><div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>No music videos yet</div><div>Add videos to CONFIG.videos to show them here</div></div>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill, minmax(300px, 1fr))", gap: isMobile ? 16 : 20 }}>
+            {videos.map((vid) => (
+              <div key={vid.id} style={{ background: theme.bgSurface, borderRadius: 8, overflow: "hidden", cursor: "pointer", transition: "background 0.2s" }}
+                onClick={() => { setPlayingVideo(vid); navigate("videoPlayer", vid); }}
+                onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = theme.bgSurface}>
+                <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", background: "#000" }}>
+                  {vid.thumbnailUrl && <img src={vid.thumbnailUrl} alt={vid.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />}
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(0,0,0,0.3)" }}>
+                    <div style={{ width: 56, height: 56, borderRadius: "50%", background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center" }}><Icons.Play size={28} /></div>
+                  </div>
+                  {vid.duration && <span style={{ position: "absolute", bottom: 8, right: 8, background: "rgba(0,0,0,0.8)", padding: "2px 6px", borderRadius: 4, fontSize: 12, fontWeight: 600 }}>{vid.duration}</span>}
+                </div>
+                <div style={{ padding: isMobile ? 12 : 16 }}>
+                  <div style={{ fontWeight: 700, fontSize: isMobile ? 14 : 16, color: theme.textPrimary, marginBottom: 4 }}>{vid.title}</div>
+                  <div style={{ fontSize: isMobile ? 12 : 13, color: theme.textSecondary }}>{vid.artist}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  const VideoPlayerView = ({ video }) => {
+    if (!video) return null;
+    const isYouTube = video.videoUrl && (video.videoUrl.includes("youtube.com") || video.videoUrl.includes("youtu.be"));
+    const getYouTubeId = (url) => { const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?\s]+)/); return m ? m[1] : null; };
+    return (
+      <div style={{ padding: `0 ${pad}px ${pad}px` }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", background: "#000", borderRadius: 8, overflow: "hidden", marginBottom: 16 }}>
+            {isYouTube ? (
+              <iframe src={`https://www.youtube.com/embed/${getYouTubeId(video.videoUrl)}?autoplay=1`} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", border: "none" }} allow="autoplay; encrypted-media" allowFullScreen />
+            ) : video.videoUrl ? (
+              <video src={video.videoUrl} controls autoPlay style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }} />
+            ) : (
+              <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", color: theme.textSubdued }}>No video URL provided</div>
+            )}
+          </div>
+          <div style={{ fontSize: isMobile ? 20 : 24, fontWeight: 700, marginBottom: 4 }}>{video.title}</div>
+          <div style={{ fontSize: isMobile ? 14 : 16, color: theme.textSecondary, marginBottom: 16 }}>{video.artist}</div>
+          {video.description && <div style={{ fontSize: 14, color: theme.textSecondary, lineHeight: 1.6 }}>{video.description}</div>}
+        </div>
+      </div>
+    );
+  };
+
   const renderMainContent = () => {
     switch (currentView) {
       case "home": return <HomeView />; case "search": return <SearchView />; case "library": return <LibraryView />;
       case "playlist": return <PlaylistView playlist={viewData} />; case "album": return <AlbumView album={viewData} />;
-      case "artist": return <ArtistView artist={viewData} />; default: return <HomeView />;
+      case "artist": return <ArtistView artist={viewData} />; case "videos": return <VideosView />;
+      case "videoPlayer": return <VideoPlayerView video={viewData} />; default: return <HomeView />;
     }
   };
 
@@ -1398,7 +1486,7 @@ export default function SpotifyClone() {
             {CONFIG.logoUrl ? <img src={CONFIG.logoUrl} alt="Logo" style={{ height: 32, objectFit: "contain" }} /> : <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: -0.5 }}>{CONFIG.logoText}</div>}
           </div>
           <nav style={{ padding: "8px 12px" }}>
-            {[{ id: "home", label: "Home", Icon: Icons.Home }, { id: "search", label: "Search", Icon: Icons.Search }].map(({ id, label, Icon }) => (
+            {[{ id: "home", label: "Home", Icon: Icons.Home }, { id: "search", label: "Search", Icon: Icons.Search }, { id: "videos", label: "Music Videos", Icon: Icons.Video }].map(({ id, label, Icon }) => (
               <div key={id} style={{ display: "flex", alignItems: "center", gap: 16, padding: "10px 12px", borderRadius: 8, cursor: "pointer", color: currentView === id ? theme.textPrimary : theme.textSecondary, fontWeight: currentView === id ? 700 : 600, fontSize: 15, background: currentView === id ? theme.bgHighlight : "transparent" }}
                 onClick={() => { setCurrentView(id); setViewData(null); if (id === "search") setTimeout(() => searchInputRef.current?.focus(), 100); }}><Icon /><span>{label}</span></div>
             ))}
@@ -1439,6 +1527,24 @@ export default function SpotifyClone() {
                 </div>
               )}
             </div>
+            {/* Mobile dropdown menu - top right */}
+            {isMobile && (
+              <div style={{ position: "relative", flexShrink: 0 }}>
+                <button style={{ background: "none", border: "none", color: theme.textPrimary, cursor: "pointer", padding: 4, display: "flex", alignItems: "center", justifyContent: "center" }} onClick={() => setMobileMenu(!mobileMenu)}><Icons.Menu size={24} /></button>
+                {mobileMenu && (<>
+                  <div style={{ position: "fixed", inset: 0, zIndex: 99 }} onClick={() => setMobileMenu(false)} />
+                  <div style={{ position: "absolute", top: 40, right: 0, background: theme.bgElevated, borderRadius: 12, boxShadow: "0 8px 32px rgba(0,0,0,.6)", padding: 8, zIndex: 100, minWidth: 200, border: `1px solid ${theme.divider}` }}>
+                    {[{ id: "home", label: "Home", icon: <Icons.Home size={20} /> }, { id: "search", label: "Search", icon: <Icons.Search size={20} /> }, { id: "videos", label: "Music Videos", icon: <Icons.Video size={20} /> }, { id: "library", label: "Your Library", icon: <Icons.Library size={20} /> }].map((item) => (
+                      <div key={item.id} style={{ display: "flex", alignItems: "center", gap: 12, padding: "12px 16px", borderRadius: 8, cursor: "pointer", color: currentView === item.id ? theme.primary : theme.textPrimary, fontWeight: currentView === item.id ? 700 : 500, fontSize: 15 }}
+                        onClick={() => { setCurrentView(item.id); setViewData(null); setMobileMenu(false); }}
+                        onMouseEnter={(e) => e.currentTarget.style.background = theme.bgHighlight} onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}>
+                        {item.icon}<span>{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </>)}
+              </div>
+            )}
           </div>
           {renderMainContent()}
           <div style={{ height: isMobile ? 160 : 100 }} />
